@@ -1,4 +1,4 @@
-# TerraMind AI — AI-Powered Agriculture Crop Advisory Assistant
+# TerraMind AI : AI-Powered Agriculture Crop Advisory Assistant
 
 *Smarter crop decisions. Evidence-driven farming.*
 
