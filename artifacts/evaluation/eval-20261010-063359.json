@@ -1,0 +1,3239 @@
+{
+  "run_id": "eval-20261010-063359",
+  "label": null,
+  "created_at": "2026-10-10T06:36:53+00:00",
+  "duration_s": 173.5,
+  "status": "completed",
+  "versions": {
+    "dataset_version": "329b6c309935",
+    "n_records": 55000,
+    "yield_model_version": "yield-20261009155757",
+    "llm_model": "claude-sonnet-5-5",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "retrieval": "hybrid RRF k=60 (BM25 + MiniLM FAISS)",
+    "top_k": 10,
+    "deepeval_limit": 10
+  },
+  "label_verification": {
+    "problems": [],
+    "n_cases": 31,
+    "verified": true
+  },
+  "summary": {
+    "n_test_cases": 31,
+    "n_passed": 31,
+    "n_failed": 0,
+    "by_type": {
+      "constraint_retrieval": {
+        "total": 16,
+        "passed": 16
+      },
+      "conditions_recommendation": {
+        "total": 8,
+        "passed": 8
+      },
+      "abstention": {
+        "total": 4,
+        "passed": 4
+      },
+      "clarification": {
+        "total": 3,
+        "passed": 3
+      }
+    },
+    "retrieval": {
+      "k": 10,
+      "n_cases": 16,
+      "precision_at_k": 0.75625,
+      "recall_at_k": 0.7468081095868474,
+      "mrr": 1.0,
+      "hit_rate_at_k": 1.0,
+      "recommendation_case_precision_at_k": 1.0
+    },
+    "deepeval": {
+      "faithfulness": {
+        "mean": null,
+        "n_measured": 0,
+        "n_unavailable": 18,
+        "unavailable_reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "pass_rate": null
+      },
+      "answer_relevancy": {
+        "mean": null,
+        "n_measured": 0,
+        "n_unavailable": 18,
+        "unavailable_reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "pass_rate": null
+      },
+      "contextual_precision": {
+        "mean": null,
+        "n_measured": 0,
+        "n_unavailable": 18,
+        "unavailable_reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "pass_rate": null
+      },
+      "contextual_recall": {
+        "mean": null,
+        "n_measured": 0,
+        "n_unavailable": 18,
+        "unavailable_reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "pass_rate": null
+      }
+    },
+    "recommendation_validation": {
+      "judge_verdicts": {
+        "not_run": 22
+      },
+      "unsupported_numeric_claims_total": 0,
+      "constraint_satisfaction_rate": 1.0,
+      "abstention_pass_rate": 1.0,
+      "clarification_pass_rate": 1.0
+    },
+    "yield_model": {
+      "model_version": "yield-20261009155757",
+      "split": {
+        "strategy": "temporal: train year<=2014, validation 2015-2017, test >2017",
+        "n_train": 14406,
+        "n_val": 3104,
+        "n_test": 2179
+      },
+      "selected_test_metrics": {
+        "core": {
+          "mae": 17.041921798341008,
+          "rmse": 290.32132585405793,
+          "r2": 0.8830437819752356,
+          "mae_log1p": 0.14104410242880755,
+          "rmse_log1p": 0.23139811732963483,
+          "r2_log1p": 0.956514866120731
+        },
+        "full": {
+          "mae": 10.052434322145704,
+          "rmse": 151.228378367468,
+          "r2": 0.9682654730047748,
+          "mae_log1p": 0.1405026476815972,
+          "rmse_log1p": 0.2319225562438897,
+          "r2_log1p": 0.9563175340115888
+        }
+      },
+      "baseline_test_metrics": {
+        "core": {
+          "mae": 24.283095063051704,
+          "rmse": 343.55778365347936,
+          "r2": 0.8362184322916846,
+          "mae_log1p": 0.30576798138806327,
+          "rmse_log1p": 0.5074287820548309,
+          "r2_log1p": 0.7908916554513652
+        },
+        "full": {
+          "mae": 24.283095063051704,
+          "rmse": 343.55778365347936,
+          "r2": 0.8362184322916846,
+          "mae_log1p": 0.30576798138806327,
+          "rmse_log1p": 0.5074287820548309,
+          "r2_log1p": 0.7908916554513652
+        }
+      },
+      "selected_models": {
+        "core": "hgb",
+        "full": "hgb"
+      }
+    },
+    "deepeval_status": "measured"
+  },
+  "results": [
+    {
+      "test_case_id": "RET-01",
+      "type": "constraint_retrieval",
+      "input": "Banana cultivation in Karnataka during the Whole Year season",
+      "expected": {
+        "crop": "Banana",
+        "state": "Karnataka",
+        "season": "Whole Year"
+      },
+      "expected_relevant_case_ids": [
+        "TM-2BE4D1D94A",
+        "TM-D56B707D16",
+        "TS-367C731465",
+        "TS-658CDD6151",
+        "TS-24A1BF10EA",
+        "TS-88F6903D11",
+        "TM-0D6977E45A",
+        "TS-EBCB023D60",
+        "TM-61D8FC3AB3",
+        "TS-CAEBB2AA76",
+        "TM-0EF57E687D",
+        "TS-33ECB514D9",
+        "TS-198BAF220B",
+        "TS-4156258E69",
+        "TM-469E472C0E",
+        "TS-355E8EFB19",
+        "TS-AA26A35A84",
+        "TM-EEF245E945",
+        "TM-566B8D1521",
+        "TS-2CA1D0A7BC",
+        "TM-61E4D64014",
+        "TS-1415D104AB",
+        "TM-4C00991507",
+        "TS-764AD1DA11",
+        "TM-42021229FC",
+        "TS-BE0C58B7DB",
+        "TS-31F391CBBD",
+        "TS-1DE167261E",
+        "TM-984FE72B88"
+      ],
+      "n_expected_relevant": 29,
+      "reference_answer": "The dataset holds 29 historical records of Banana in Karnataka during the Whole Year season (1999-2011).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-658CDD6151",
+        "TS-EBCB023D60",
+        "TS-4156258E69",
+        "TS-33ECB514D9",
+        "TM-D56B707D16",
+        "TM-2BE4D1D94A",
+        "TS-2CA1D0A7BC",
+        "TS-88F6903D11",
+        "TS-1415D104AB",
+        "TM-0D6977E45A"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Banana, Coconut, Tobacco. Ranking is a heuristic over case similarity, not a guarantee of yield.\nBanana: 29 similar historical cases support Banana (e.g. TM-D56B707D16, TS-2CA1D0A7BC). Median historical yield among them: 21.41 (source units). Rule-based risk: low.\nCoconut: 3 similar historical cases support Coconut (e.g. TS-7FEDBD86B1, TM-439B82DEF3). Median historical yield among them: 6350.11 (source units). Rule-based risk: low.\nTobacco: 28 similar historical cases support Tobacco (e.g. TS-EF1FFC559B, TS-8EB7C8E833). Median historical yield among them: 0.67 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.3448275862068966,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "29 relevant cases exist; max achievable Recall@10 = 0.34",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=10; used for pass/fail because Precision@10 is capped at 10/10 when only 29 relevant cases exist"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": null,
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "RET-02",
+      "type": "constraint_retrieval",
+      "input": "Barley cultivation in Madhya Pradesh during the Kharif season",
+      "expected": {
+        "crop": "Barley",
+        "state": "Madhya Pradesh",
+        "season": "Kharif"
+      },
+      "expected_relevant_case_ids": [
+        "TM-D0771BDCFF",
+        "TS-1C13789712",
+        "TS-9AFBA4E652",
+        "TS-D8DD70DEF2",
+        "TS-4812A7440B",
+        "TS-6090D130F1",
+        "TM-2DEEAE8212",
+        "TS-4DA429DA1E",
+        "TM-0DBCE62FD4",
+        "TS-B7488F861F",
+        "TM-EFC5E979B8",
+        "TS-A43652AE9E",
+        "TM-675C61C75F",
+        "TM-145A3F1614",
+        "TS-D62E967D9B",
+        "TS-AA242F6728",
+        "TM-445E9F4163",
+        "TS-187A56A1C0",
+        "TM-7FBB2388A1"
+      ],
+      "n_expected_relevant": 19,
+      "reference_answer": "The dataset holds 19 historical records of Barley in Madhya Pradesh during the Kharif season (2011-2018).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-B7488F861F",
+        "TM-145A3F1614",
+        "TS-4812A7440B",
+        "TM-445E9F4163",
+        "TS-D8DD70DEF2",
+        "TS-D62E967D9B",
+        "TS-A43652AE9E",
+        "TM-EFC5E979B8",
+        "TS-AA242F6728",
+        "TS-1C13789712"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Barley, Other Kharif pulses, Other Cereals. Ranking is a heuristic over case similarity, not a guarantee of yield.\nBarley: 19 similar historical cases support Barley (e.g. TS-B7488F861F, TM-145A3F1614). Median historical yield among them: 2.18 (source units). Rule-based risk: low.\nOther Kharif pulses: 21 similar historical cases support Other Kharif pulses (e.g. TM-0A4493EBBE, TS-C2D776D1F4). Median historical yield among them: 0.30 (source units). Rule-based risk: low.\nOther Cereals: 4 similar historical cases support Other Cereals (e.g. TM-1B0EADD83A, TS-52E65340A1). Median historical yield among them: 0.79 (source units). Rule-based risk: low.\nMaize: 14 similar historical cases support Maize (e.g. TM-F2FABADBCB, TS-1ED4258375). Median historical yield among them: 1.79 (source units). Rule-based risk: low.\nRice: 2 similar historical cases support Rice (e.g. TS-52D4391BC5, TS-2412EBD8D9). Median historical yield among them: 1.21 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.5263157894736842,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "19 relevant cases exist; max achievable Recall@10 = 0.53",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=10; used for pass/fail because Precision@10 is capped at 10/10 when only 19 relevant cases exist"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": null,
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "RET-03",
+      "type": "constraint_retrieval",
+      "input": "Coconut cultivation in Chhattisgarh during the Kharif season",
+      "expected": {
+        "crop": "Coconut",
+        "state": "Chhattisgarh",
+        "season": "Kharif"
+      },
+      "expected_relevant_case_ids": [
+        "TM-B40873E85A",
+        "TS-7146272C51",
+        "TS-465DD2158A"
+      ],
+      "n_expected_relevant": 3,
+      "reference_answer": "The dataset holds 3 historical records of Coconut in Chhattisgarh during the Kharif season (2008-2008).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-7146272C51",
+        "TS-465DD2158A",
+        "TM-B40873E85A",
+        "TS-4A83D40F37",
+        "TS-C50313BE1B",
+        "TS-592A0D9339",
+        "TS-12E4445322",
+        "TM-F665541C5B",
+        "TS-42CA9DBBC3",
+        "TM-A13A3E43E1"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Coconut, Other Kharif pulses, Groundnut. Ranking is a heuristic over case similarity, not a guarantee of yield.\nCoconut: 3 similar historical cases support Coconut (e.g. TS-7146272C51, TM-B40873E85A). Median historical yield among them: 0.00 (source units). Rule-based risk: moderate.\nOther Kharif pulses: 56 similar historical cases support Other Kharif pulses (e.g. TS-A4CA6A8785, TM-5A906F9F94). Median historical yield among them: 0.27 (source units). Rule-based risk: low.\nGroundnut: 1 similar historical cases support Groundnut (e.g. TM-D0DC185129). Median historical yield among them: 1.33 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 0.3,
+        "recall_at_k": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "3 relevant cases exist; max achievable Recall@10 = 1.00",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=3; used for pass/fail because Precision@10 is capped at 3/10 when only 3 relevant cases exist"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": null,
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "RET-04",
+      "type": "constraint_retrieval",
+      "input": "Guar seed cultivation in Chhattisgarh during the Kharif season",
+      "expected": {
+        "crop": "Guar seed",
+        "state": "Chhattisgarh",
+        "season": "Kharif"
+      },
+      "expected_relevant_case_ids": [
+        "TM-F61B2BFE85",
+        "TS-C8108DA1FE",
+        "TS-733606EF06"
+      ],
+      "n_expected_relevant": 3,
+      "reference_answer": "The dataset holds 3 historical records of Guar seed in Chhattisgarh during the Kharif season (2013-2013).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-C8108DA1FE",
+        "TM-F61B2BFE85",
+        "TS-733606EF06",
+        "TM-6CA7AFEEC0",
+        "TM-25736794F5",
+        "TM-E27426146B",
+        "TM-434BE5683E",
+        "TS-65E8CE1389",
+        "TS-DFE725EC99",
+        "TS-59E31CCCBA"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Guar seed, Castor seed, Groundnut. Ranking is a heuristic over case similarity, not a guarantee of yield.\nGuar seed: 3 similar historical cases support Guar seed (e.g. TS-733606EF06, TM-F61B2BFE85). Median historical yield among them: 0.81 (source units). Rule-based risk: low.\nCastor seed: 21 similar historical cases support Castor seed (e.g. TM-378BE29732, TM-E862DD9A28). Median historical yield among them: 0.26 (source units). Rule-based risk: low.\nGroundnut: 21 similar historical cases support Groundnut (e.g. TM-D0DC185129, TS-BD45F1BE3F). Median historical yield among them: 1.31 (source units). Rule-based risk: low.\nOther Kharif pulses: 15 similar historical cases support Other Kharif pulses (e.g. TS-6906103528, TM-7DFECEC8C2). Median historical yield among them: 0.27 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 0.3,
+        "recall_at_k": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "3 relevant cases exist; max achievable Recall@10 = 1.00",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=3; used for pass/fail because Precision@10 is capped at 3/10 when only 3 relevant cases exist"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": null,
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "RET-05",
+      "type": "constraint_retrieval",
+      "input": "Horse-gram cultivation in Telangana during the Rabi season",
+      "expected": {
+        "crop": "Horse-gram",
+        "state": "Telangana",
+        "season": "Rabi"
+      },
+      "expected_relevant_case_ids": [
+        "TM-DBE75F122C",
+        "TS-EDD2171C07",
+        "TS-032F8BD31A",
+        "TM-2848A37011",
+        "TS-51CE0B9977",
+        "TM-282AEF31E4",
+        "TS-43FDA6E517",
+        "TM-D28258AD36",
+        "TS-9F4BE97473",
+        "TS-3EA7BC630D",
+        "TM-28E641D687",
+        "TS-88D6050BD2",
+        "TS-286E7935D2",
+        "TM-56727ACADD",
+        "TS-AD707D4335",
+        "TM-E73C6AC9F0",
+        "TS-DD9DEE3CA2",
+        "TS-29AE11C022",
+        "TS-CF98BD035B"
+      ],
+      "n_expected_relevant": 19,
+      "reference_answer": "The dataset holds 19 historical records of Horse-gram in Telangana during the Rabi season (2013-2019).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-286E7935D2",
+        "TM-D28258AD36",
+        "TM-2848A37011",
+        "TS-AD707D4335",
+        "TS-51CE0B9977",
+        "TM-28E641D687",
+        "TM-DBE75F122C",
+        "TM-282AEF31E4",
+        "TS-9F4BE97473",
+        "TS-DD9DEE3CA2"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Horse-gram, Gram, Wheat. Ranking is a heuristic over case similarity, not a guarantee of yield.\nHorse-gram: 19 similar historical cases support Horse-gram (e.g. TS-286E7935D2, TS-51CE0B9977). Median historical yield among them: 0.48 (source units). Rule-based risk: low.\nGram: 18 similar historical cases support Gram (e.g. TS-2872C050F9, TS-0B0059A1FC). Median historical yield among them: 1.42 (source units). Rule-based risk: low.\nWheat: 12 similar historical cases support Wheat (e.g. TS-CBB9F22576, TS-168A02927A). Median historical yield among them: 1.17 (source units). Rule-based risk: moderate.\nMoong(Green Gram): 7 similar historical cases support Moong(Green Gram) (e.g. TM-1F8CDA85D6, TS-045F528D5D). Median historical yield among them: 0.91 (source units). Rule-based risk: low.\nGroundnut: 3 similar historical cases support Groundnut (e.g. TS-BEA92E9868, TS-4BBE39BD71). Median historical yield among them: 2.14 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.5263157894736842,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "19 relevant cases exist; max achievable Recall@10 = 0.53",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=10; used for pass/fail because Precision@10 is capped at 10/10 when only 19 relevant cases exist"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": null,
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "RET-06",
+      "type": "constraint_retrieval",
+      "input": "Mesta cultivation in Madhya Pradesh during the Whole Year season",
+      "expected": {
+        "crop": "Mesta",
+        "state": "Madhya Pradesh",
+        "season": "Whole Year"
+      },
+      "expected_relevant_case_ids": [
+        "TM-229A925FC9",
+        "TM-ECC9FD666D",
+        "TS-72A608C667",
+        "TS-4EC7C33A7A"
+      ],
+      "n_expected_relevant": 4,
+      "reference_answer": "The dataset holds 4 historical records of Mesta in Madhya Pradesh during the Whole Year season (2009-2010).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TM-229A925FC9",
+        "TM-ECC9FD666D",
+        "TS-4EC7C33A7A",
+        "TS-72A608C667",
+        "TS-33B69D462F",
+        "TS-F0D1824CE1",
+        "TS-A797654555",
+        "TS-BD20B16763",
+        "TM-EAECA2EE70",
+        "TM-7A1D2978C4"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Mesta, Tobacco, Gram. Ranking is a heuristic over case similarity, not a guarantee of yield.\nMesta: 4 similar historical cases support Mesta (e.g. TS-72A608C667, TM-ECC9FD666D). Median historical yield among them: 1.12 (source units). Rule-based risk: low.\nTobacco: 25 similar historical cases support Tobacco (e.g. TS-88245DF44A, TS-ADE0C49562). Median historical yield among them: 0.50 (source units). Rule-based risk: low.\nGram: 5 similar historical cases support Gram (e.g. TS-4A9B3CDC87, TS-AF7F888BC4). Median historical yield among them: 0.95 (source units). Rule-based risk: low.\nBanana: 14 similar historical cases support Banana (e.g. TS-720EFAAA5C, TS-76A2ECFB77). Median historical yield among them: 28.22 (source units). Rule-based risk: low.\nTurmeric: 6 similar historical cases support Turmeric (e.g. TS-30A54637EC, TS-9B260CD3F1). Median historical yield among them: 1.07 (source units). Rule-based risk: moderate.",
+      "retrieval_metrics": {
+        "precision_at_k": 0.4,
+        "recall_at_k": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "4 relevant cases exist; max achievable Recall@10 = 1.00",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=4; used for pass/fail because Precision@10 is capped at 4/10 when only 4 relevant cases exist"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": null,
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "RET-07",
+      "type": "constraint_retrieval",
+      "input": "Moong(Green Gram) cultivation in Karnataka during the Summer season",
+      "expected": {
+        "crop": "Moong(Green Gram)",
+        "state": "Karnataka",
+        "season": "Summer"
+      },
+      "expected_relevant_case_ids": [
+        "TM-F853391378",
+        "TS-8A5083035E",
+        "TS-6073F99B44",
+        "TM-FF47E382AD",
+        "TS-66651FECAE",
+        "TS-667CE2677E",
+        "TS-9249473634",
+        "TM-506C7CFE5F",
+        "TS-4C688529A8",
+        "TM-4D3E5BE1EB",
+        "TS-EED93B6F53",
+        "TS-C8979FB5D7",
+        "TS-0010980226",
+        "TM-63C027F4DC",
+        "TS-4BDA63BFB1",
+        "TS-214603551B"
+      ],
+      "n_expected_relevant": 16,
+      "reference_answer": "The dataset holds 16 historical records of Moong(Green Gram) in Karnataka during the Summer season (2015-2019).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-8A5083035E",
+        "TM-FF47E382AD",
+        "TS-66651FECAE",
+        "TS-4C688529A8",
+        "TS-6073F99B44",
+        "TS-9249473634",
+        "TM-F853391378",
+        "TS-667CE2677E",
+        "TM-506C7CFE5F",
+        "TS-EED93B6F53"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Moong(Green Gram), Sunflower, Rice. Ranking is a heuristic over case similarity, not a guarantee of yield.\nMoong(Green Gram): 16 similar historical cases support Moong(Green Gram) (e.g. TS-8A5083035E, TM-F853391378). Median historical yield among them: 0.21 (source units). Rule-based risk: low.\nSunflower: 37 similar historical cases support Sunflower (e.g. TM-B5B62EE12E, TS-07AB404F85). Median historical yield among them: 0.83 (source units). Rule-based risk: low.\nRice: 7 similar historical cases support Rice (e.g. TS-0AC27C27D6, TS-968D449945). Median historical yield among them: 2.85 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.625,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "16 relevant cases exist; max achievable Recall@10 = 0.62",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=10; used for pass/fail because Precision@10 is capped at 10/10 when only 16 relevant cases exist"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": null,
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "RET-08",
+      "type": "constraint_retrieval",
+      "input": "Onion cultivation in Uttarakhand during the Summer season",
+      "expected": {
+        "crop": "Onion",
+        "state": "Uttarakhand",
+        "season": "Summer"
+      },
+      "expected_relevant_case_ids": [
+        "TM-C5BE6C4525",
+        "TS-2884613437",
+        "TS-D373A5E420"
+      ],
+      "n_expected_relevant": 3,
+      "reference_answer": "The dataset holds 3 historical records of Onion in Uttarakhand during the Summer season (2002-2002).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-2884613437",
+        "TM-C5BE6C4525",
+        "TS-D373A5E420",
+        "TS-05696ABCA8",
+        "TS-8C4DB6F36C",
+        "TS-5970E953BA",
+        "TM-78BE0B3F9C",
+        "TS-86DE23CE53",
+        "TS-D3B06CCF9C",
+        "TS-EF2FFF8E71"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Onion, Other Summer Pulses, Rice. Ranking is a heuristic over case similarity, not a guarantee of yield.\nOnion: 3 similar historical cases support Onion (e.g. TS-2884613437, TS-D373A5E420). Median historical yield among them: 10.73 (source units). Rule-based risk: low.\nOther Summer Pulses: 3 similar historical cases support Other Summer Pulses (e.g. TM-0F7A00E98D, TM-E1F2FF7A0A). Median historical yield among them: 0.67 (source units). Rule-based risk: low.\nRice: 43 similar historical cases support Rice (e.g. TM-CABF69C4B8, TS-87736368E1). Median historical yield among them: 3.35 (source units). Rule-based risk: low.\nUrad: 11 similar historical cases support Urad (e.g. TM-0082DD1847, TS-985FCE49F6). Median historical yield among them: 0.55 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 0.3,
+        "recall_at_k": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "3 relevant cases exist; max achievable Recall@10 = 1.00",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=3; used for pass/fail because Precision@10 is capped at 3/10 when only 3 relevant cases exist"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": null,
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "RET-09",
+      "type": "constraint_retrieval",
+      "input": "Other Cereals cultivation in Maharashtra during the Rabi season",
+      "expected": {
+        "crop": "Other Cereals",
+        "state": "Maharashtra",
+        "season": "Rabi"
+      },
+      "expected_relevant_case_ids": [
+        "TM-9F4136B032",
+        "TS-D85EFFB660",
+        "TS-241DBD0981",
+        "TM-BAED6D81E2",
+        "TS-5B149435D6",
+        "TS-44DC4F655C",
+        "TS-4C0E33D818",
+        "TS-38D5612F65",
+        "TS-3895DA7B2F",
+        "TS-F54BEE5C8B",
+        "TM-9706ADD252",
+        "TS-AECB9F2966",
+        "TS-24C82618F1",
+        "TM-E81B06A237",
+        "TM-0520BE2C7A",
+        "TS-35FA4F16B8",
+        "TM-B4695BD58B"
+      ],
+      "n_expected_relevant": 17,
+      "reference_answer": "The dataset holds 17 historical records of Other Cereals in Maharashtra during the Rabi season (1998-2019).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-241DBD0981",
+        "TS-F54BEE5C8B",
+        "TS-D85EFFB660",
+        "TM-BAED6D81E2",
+        "TM-E81B06A237",
+        "TS-24C82618F1",
+        "TM-0520BE2C7A",
+        "TS-35FA4F16B8",
+        "TS-3895DA7B2F",
+        "TS-5B149435D6"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Other Cereals, Wheat, Other Rabi pulses. Ranking is a heuristic over case similarity, not a guarantee of yield.\nOther Cereals: 17 similar historical cases support Other Cereals (e.g. TS-F54BEE5C8B, TS-241DBD0981). Median historical yield among them: 0.41 (source units). Rule-based risk: low.\nWheat: 25 similar historical cases support Wheat (e.g. TS-98BFFBB671, TS-FEF511A59E). Median historical yield among them: 1.51 (source units). Rule-based risk: low.\nOther Rabi pulses: 15 similar historical cases support Other Rabi pulses (e.g. TM-C6B8F57485, TS-5A93A95B81). Median historical yield among them: 0.44 (source units). Rule-based risk: low.\nGram: 3 similar historical cases support Gram (e.g. TS-B60C48D509, TS-A1E852B99E). Median historical yield among them: 0.84 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.5882352941176471,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "17 relevant cases exist; max achievable Recall@10 = 0.59",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=10; used for pass/fail because Precision@10 is capped at 10/10 when only 17 relevant cases exist"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": null,
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "RET-10",
+      "type": "constraint_retrieval",
+      "input": "Ragi cultivation in Jammu and Kashmir during the Kharif season",
+      "expected": {
+        "crop": "Ragi",
+        "state": "Jammu and Kashmir",
+        "season": "Kharif"
+      },
+      "expected_relevant_case_ids": [
+        "TM-9D813CFCD2",
+        "TS-2878D9E878",
+        "TM-3010C1B79E",
+        "TS-91514F8D51",
+        "TS-5F3377A402",
+        "TM-3E99C41863",
+        "TS-AE318607DE",
+        "TS-682CD4A73D",
+        "TS-CBA7F2DAFF"
+      ],
+      "n_expected_relevant": 9,
+      "reference_answer": "The dataset holds 9 historical records of Ragi in Jammu and Kashmir during the Kharif season (2017-2019).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TM-3E99C41863",
+        "TM-9D813CFCD2",
+        "TS-2878D9E878",
+        "TS-5F3377A402",
+        "TS-682CD4A73D",
+        "TM-3010C1B79E",
+        "TS-CBA7F2DAFF",
+        "TS-AE318607DE",
+        "TS-91514F8D51",
+        "TS-DDF6E83D8E"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Ragi, Wheat, Tobacco. Ranking is a heuristic over case similarity, not a guarantee of yield.\nRagi: 9 similar historical cases support Ragi (e.g. TS-2878D9E878, TM-9D813CFCD2). Median historical yield among them: 0.55 (source units). Rule-based risk: low.\nWheat: 8 similar historical cases support Wheat (e.g. TS-FFAD3FFC8A, TM-ED829971D2). Median historical yield among them: 0.12 (source units). Rule-based risk: low.\nTobacco: 11 similar historical cases support Tobacco (e.g. TM-4E333D2360, TM-0937EBD353). Median historical yield among them: 0.40 (source units). Rule-based risk: low.\nOther Kharif pulses: 20 similar historical cases support Other Kharif pulses (e.g. TS-610C2DB2A6, TS-65A2501D43). Median historical yield among them: 0.67 (source units). Rule-based risk: low.\nGram: 4 similar historical cases support Gram (e.g. TM-6388172A3B, TM-8686DF8A19). Median historical yield among them: 0.25 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 0.9,
+        "recall_at_k": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "9 relevant cases exist; max achievable Recall@10 = 1.00",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=9; used for pass/fail because Precision@10 is capped at 9/10 when only 9 relevant cases exist"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": null,
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "RET-11",
+      "type": "constraint_retrieval",
+      "input": "Rice cultivation in Tamil Nadu during the Autumn season",
+      "expected": {
+        "crop": "Rice",
+        "state": "Tamil Nadu",
+        "season": "Autumn"
+      },
+      "expected_relevant_case_ids": [
+        "TM-FA6ED3AFAA",
+        "TS-7C65A3BE21",
+        "TS-7411DD3700",
+        "TM-EF8B1DCD7C",
+        "TS-3A51A87081",
+        "TS-88E6904DD4",
+        "TS-707BE1C0B1",
+        "TM-DD802CF4C5",
+        "TS-A246487743",
+        "TS-8E2218F705",
+        "TS-FC91529742",
+        "TS-C982EBC507"
+      ],
+      "n_expected_relevant": 12,
+      "reference_answer": "The dataset holds 12 historical records of Rice in Tamil Nadu during the Autumn season (2017-2019).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-707BE1C0B1",
+        "TS-88E6904DD4",
+        "TS-7411DD3700",
+        "TS-C982EBC507",
+        "TS-FC91529742",
+        "TS-3A51A87081",
+        "TS-A246487743",
+        "TM-FA6ED3AFAA",
+        "TS-8E2218F705",
+        "TM-EF8B1DCD7C"
+      ],
+      "generated_answer": null,
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.8333333333333334,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "12 relevant cases exist; max achievable Recall@10 = 0.83",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=10; used for pass/fail because Precision@10 is capped at 10/10 when only 12 relevant cases exist"
+      },
+      "deepeval": null,
+      "recommendation_checks": null,
+      "judge_verdict": null,
+      "pipeline_status": null,
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "RET-12",
+      "type": "constraint_retrieval",
+      "input": "Sesamum cultivation in Assam during the Whole Year season",
+      "expected": {
+        "crop": "Sesamum",
+        "state": "Assam",
+        "season": "Whole Year"
+      },
+      "expected_relevant_case_ids": [
+        "TM-3DC54D8550",
+        "TS-16D968BB8C",
+        "TS-740F7AF211"
+      ],
+      "n_expected_relevant": 3,
+      "reference_answer": "The dataset holds 3 historical records of Sesamum in Assam during the Whole Year season (1997-1997).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TM-3DC54D8550",
+        "TS-16D968BB8C",
+        "TS-740F7AF211",
+        "TM-DDD270B8D0",
+        "TS-C46488E43A",
+        "TS-8C001FB2AE",
+        "TM-E8E6625520",
+        "TS-164DC54528",
+        "TS-FA2049AFC9",
+        "TS-B354A2A48F"
+      ],
+      "generated_answer": null,
+      "retrieval_metrics": {
+        "precision_at_k": 0.3,
+        "recall_at_k": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "3 relevant cases exist; max achievable Recall@10 = 1.00",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=3; used for pass/fail because Precision@10 is capped at 3/10 when only 3 relevant cases exist"
+      },
+      "deepeval": null,
+      "recommendation_checks": null,
+      "judge_verdict": null,
+      "pipeline_status": null,
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "RET-13",
+      "type": "constraint_retrieval",
+      "input": "Soyabean cultivation in Andhra Pradesh during the Rabi season",
+      "expected": {
+        "crop": "Soyabean",
+        "state": "Andhra Pradesh",
+        "season": "Rabi"
+      },
+      "expected_relevant_case_ids": [
+        "TM-45A262BBA7",
+        "TM-E0E849ED2D",
+        "TS-7D4044A855",
+        "TM-E67CFB6638",
+        "TS-C166189D55",
+        "TM-405B060914",
+        "TS-0C99CFBA6E",
+        "TS-DD1381F24F",
+        "TM-29CF211C7F",
+        "TS-42314B4AA7",
+        "TS-FBCF2303CB",
+        "TM-58DB8D3ABF",
+        "TM-3F9788C069",
+        "TS-C59164C1CD",
+        "TS-321D559145",
+        "TS-7901203D6C",
+        "TM-295098BCFC"
+      ],
+      "n_expected_relevant": 17,
+      "reference_answer": "The dataset holds 17 historical records of Soyabean in Andhra Pradesh during the Rabi season (2012-2019).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TM-29CF211C7F",
+        "TS-42314B4AA7",
+        "TM-58DB8D3ABF",
+        "TM-405B060914",
+        "TS-FBCF2303CB",
+        "TM-295098BCFC",
+        "TS-7901203D6C",
+        "TS-0C99CFBA6E",
+        "TS-C166189D55",
+        "TS-DD1381F24F"
+      ],
+      "generated_answer": null,
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.5882352941176471,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "17 relevant cases exist; max achievable Recall@10 = 0.59",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=10; used for pass/fail because Precision@10 is capped at 10/10 when only 17 relevant cases exist"
+      },
+      "deepeval": null,
+      "recommendation_checks": null,
+      "judge_verdict": null,
+      "pipeline_status": null,
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "RET-14",
+      "type": "constraint_retrieval",
+      "input": "Tapioca cultivation in Mizoram during the Whole Year season",
+      "expected": {
+        "crop": "Tapioca",
+        "state": "Mizoram",
+        "season": "Whole Year"
+      },
+      "expected_relevant_case_ids": [
+        "TM-7C19899886",
+        "TS-3AFE9DF3B3",
+        "TS-20EDDE092C",
+        "TM-32B00B148C",
+        "TM-5633E5C37B",
+        "TM-404B67CA84"
+      ],
+      "n_expected_relevant": 6,
+      "reference_answer": "The dataset holds 6 historical records of Tapioca in Mizoram during the Whole Year season (1997-2003).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-20EDDE092C",
+        "TM-32B00B148C",
+        "TS-3AFE9DF3B3",
+        "TM-404B67CA84",
+        "TM-7C19899886",
+        "TM-5633E5C37B",
+        "TM-9ECA177141",
+        "TM-1B7B4EABDE",
+        "TS-B1C79A0BFF",
+        "TS-3668677D66"
+      ],
+      "generated_answer": null,
+      "retrieval_metrics": {
+        "precision_at_k": 0.6,
+        "recall_at_k": 1.0,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "6 relevant cases exist; max achievable Recall@10 = 1.00",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=6; used for pass/fail because Precision@10 is capped at 6/10 when only 6 relevant cases exist"
+      },
+      "deepeval": null,
+      "recommendation_checks": null,
+      "judge_verdict": null,
+      "pipeline_status": null,
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "RET-15",
+      "type": "constraint_retrieval",
+      "input": "Turmeric cultivation in Puducherry during the Kharif season",
+      "expected": {
+        "crop": "Turmeric",
+        "state": "Puducherry",
+        "season": "Kharif"
+      },
+      "expected_relevant_case_ids": [
+        "TM-412AAC9670",
+        "TS-2FA72483A5",
+        "TS-365AA352D1",
+        "TM-B8596A723F",
+        "TS-0EB60BB3D9",
+        "TS-F534A933FB",
+        "TS-24A0F29742",
+        "TM-A5F72BF596",
+        "TS-38C8E3B218",
+        "TS-C08D1F0F6B",
+        "TS-B1C8D8C968",
+        "TM-8FB0DDB010",
+        "TM-0EFF07693F",
+        "TS-8AA9CF5C7E",
+        "TM-FB2041F92B",
+        "TS-95926F2161",
+        "TS-6367AEE0FD",
+        "TS-C8FC4B29FD",
+        "TS-79E3FE85A1",
+        "TM-46E8BC1BA9",
+        "TS-4BA99D7097",
+        "TM-476A3C777F",
+        "TS-09A746F2EE",
+        "TS-F57E695F4E"
+      ],
+      "n_expected_relevant": 24,
+      "reference_answer": "The dataset holds 24 historical records of Turmeric in Puducherry during the Kharif season (2009-2019).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-C08D1F0F6B",
+        "TM-0EFF07693F",
+        "TS-B1C8D8C968",
+        "TM-B8596A723F",
+        "TS-8AA9CF5C7E",
+        "TM-FB2041F92B",
+        "TS-F534A933FB",
+        "TM-476A3C777F",
+        "TS-0EB60BB3D9",
+        "TS-24A0F29742"
+      ],
+      "generated_answer": null,
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.4166666666666667,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "24 relevant cases exist; max achievable Recall@10 = 0.42",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=10; used for pass/fail because Precision@10 is capped at 10/10 when only 24 relevant cases exist"
+      },
+      "deepeval": null,
+      "recommendation_checks": null,
+      "judge_verdict": null,
+      "pipeline_status": null,
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "RET-16",
+      "type": "constraint_retrieval",
+      "input": "Wheat cultivation in Kerala during the Whole Year season",
+      "expected": {
+        "crop": "Wheat",
+        "state": "Kerala",
+        "season": "Whole Year"
+      },
+      "expected_relevant_case_ids": [
+        "TM-B94560EAE0",
+        "TS-ADB479A247",
+        "TS-73D969A39F",
+        "TS-DA57ACE174",
+        "TS-D9653F5241",
+        "TM-E782E6B54D",
+        "TS-45BBCDFD70",
+        "TM-05D0719307",
+        "TS-BF82D75EE9",
+        "TS-541276B88D",
+        "TM-55C0F4E1B1",
+        "TS-1BFBEB9188",
+        "TS-81EE652433",
+        "TM-70E59F4E68",
+        "TS-C245538C4A",
+        "TM-0B28402729",
+        "TS-D759C67034",
+        "TS-7727CD80DE",
+        "TM-A3290819E8",
+        "TS-42812A624A"
+      ],
+      "n_expected_relevant": 20,
+      "reference_answer": "The dataset holds 20 historical records of Wheat in Kerala during the Whole Year season (2012-2019).",
+      "provenance": "relevant = all dataset records with exact crop+state+season match (deterministic filter)",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TM-0B28402729",
+        "TS-ADB479A247",
+        "TS-7727CD80DE",
+        "TM-55C0F4E1B1",
+        "TM-B94560EAE0",
+        "TM-70E59F4E68",
+        "TS-D759C67034",
+        "TS-42812A624A",
+        "TM-A3290819E8",
+        "TS-D9653F5241"
+      ],
+      "generated_answer": null,
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": 0.5,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "20 relevant cases exist; max achievable Recall@10 = 0.50",
+        "r_precision": 1.0,
+        "r_precision_note": "precision at k=min(K,|relevant|)=10; used for pass/fail because Precision@10 is capped at 10/10 when only 20 relevant cases exist"
+      },
+      "deepeval": null,
+      "recommendation_checks": null,
+      "judge_verdict": null,
+      "pipeline_status": null,
+      "backends_used": {
+        "keyword": true,
+        "semantic": true
+      },
+      "passed": true
+    },
+    {
+      "test_case_id": "REC-01",
+      "type": "conditions_recommendation",
+      "input": "Which crops have historically performed well in Uttar Pradesh during the Whole Year season? Soil pH is 7.6, rainfall about 803 mm and mean temperature 25.9 C.",
+      "expected": {
+        "state": "Uttar Pradesh",
+        "season": "Whole Year",
+        "allowed_crops": [
+          "Banana",
+          "Coriander",
+          "Dry chillies",
+          "Garlic",
+          "Guar seed",
+          "Moth",
+          "Onion",
+          "Peas & beans (Pulses)",
+          "Potato",
+          "Sannhamp",
+          "Sugarcane",
+          "Sweet potato",
+          "Tobacco",
+          "Turmeric"
+        ]
+      },
+      "expected_relevant_case_ids": [
+        "TM-E25ADF7E3C",
+        "TS-92442B3D91",
+        "TS-4C00BD6AC8",
+        "TM-C504E9E2EE",
+        "TS-B44EC64E59",
+        "TS-62EE7D4460",
+        "TS-4BB7D97D1E",
+        "TS-C3A94661A1",
+        "TM-6CC23253DB",
+        "TS-D4F3DB6AB7",
+        "TS-299FF51796",
+        "TM-33624E7161",
+        "TS-C032A75D2F",
+        "TS-3EA7BCD972",
+        "TS-6A8D1BBC2A",
+        "TM-CDE23E1399",
+        "TS-6CBF1AFD36",
+        "TS-2F305A84A8",
+        "TS-D55DEC9D58",
+        "TM-959C9EB792",
+        "TS-61C1730C8F",
+        "TM-C53FB87A11",
+        "TM-00D3C4828F",
+        "TS-3F17D7A1B8",
+        "TS-4495EFDDF0",
+        "TM-85BFA43D95",
+        "TS-31A08A64F4",
+        "TS-67B2106A5C",
+        "TM-02A32A9C64",
+        "TS-3557C5E031",
+        "TS-1CE8771954",
+        "TS-F6F8A7CB60",
+        "TM-2D5C832882",
+        "TS-D7D44A4DC2",
+        "TS-1FD1C8EAFB",
+        "TS-85DFB2F76E",
+        "TS-D88B8C58DE",
+        "TS-FCFC0D1CCA",
+        "TS-1E1D25090A",
+        "TM-B4344784F4",
+        "TS-65B83650C0",
+        "TM-226C7636D8",
+        "TS-EDF09EDA3B",
+        "TS-E219B35098",
+        "TM-6F4C9C6E8D",
+        "TS-10ADB59F80",
+        "TS-35548F7FAE",
+        "TM-103973FA7F",
+        "TS-62686F4844",
+        "TS-E2ECF7C0D8",
+        "TS-3109EDE685",
+        "TM-F2FB42BF52",
+        "TS-132BFED2DB",
+        "TS-5D20CFB48D",
+        "TS-FDC605885D",
+        "TM-907EE9EF40",
+        "TS-6253C89AB4",
+        "TS-915F64F879",
+        "TM-49180E95E3",
+        "TS-43104C3C9D",
+        "TS-62BDD3DBEE",
+        "TS-3214B7E46F",
+        "TM-4CD4064DC1",
+        "TS-F3D2687863",
+        "TS-8754592469",
+        "TM-E50124D28F",
+        "TS-256D07C248",
+        "TM-CFAA0854ED",
+        "TS-5B2331948A",
+        "TM-27C2770F16",
+        "TS-0FB068005E",
+        "TM-2E38C0E3CE",
+        "TS-52B7532457",
+        "TS-D5621D29ED",
+        "TS-448E49CAE6",
+        "TM-2B5085B2AB",
+        "TM-6AA233DBF4",
+        "TS-3C753F5AC4",
+        "TS-872BD3A102",
+        "TM-C366D4FEAD",
+        "TS-BF48A15EB4",
+        "TS-8BA5AF43AD",
+        "TS-FD31660364",
+        "TM-C60A4E9EE3",
+        "TS-ECD5327D77",
+        "TS-CE312EB572",
+        "TM-22B1F0C0CF",
+        "TS-0B583D6D1E",
+        "TS-273F0ED0C4",
+        "TS-BFA00C37B2",
+        "TM-8C1EB76B39",
+        "TM-7E3A81458A",
+        "TS-80C53439A7",
+        "TM-4D969E4474",
+        "TS-A98631F5E7",
+        "TS-4A2321D526",
+        "TM-870401A5A1",
+        "TS-9E012E69FB",
+        "TS-50A6861A24",
+        "TM-24BA6215D5"
+      ],
+      "n_expected_relevant": 158,
+      "reference_answer": "In Uttar Pradesh during the Whole Year season the most frequently recorded crops are Sugarcane (22 records), Tobacco (22 records), Potato (19 records), Onion (18 records), Turmeric (16 records).",
+      "provenance": "anchor record TS-80C53439A7; allowed crops = crops with >=1 record in state+season",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-44BE5EEAD9",
+        "TM-E27E250B53",
+        "TS-3243FDCFC4",
+        "TS-CC9C334E2A",
+        "TS-9E7D2AB1B9",
+        "TS-C13E591F60",
+        "TM-EBB4F6049D",
+        "TS-149710EB9D",
+        "TS-9379B89B1D",
+        "TM-C60A4E9EE3"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Tobacco, Potato, Sugarcane. Ranking is a heuristic over case similarity, not a guarantee of yield.\nTobacco: 22 similar historical cases support Tobacco (e.g. TS-44BE5EEAD9, TM-E27E250B53). Median historical yield among them: 5.70 (source units). Rule-based risk: low.\nPotato: 6 similar historical cases support Potato (e.g. TM-C60A4E9EE3, TS-CE312EB572). Median historical yield among them: 19.90 (source units). Rule-based risk: low.\nSugarcane: 11 similar historical cases support Sugarcane (e.g. TS-80B16E5FFF, TM-09A193F7E0). Median historical yield among them: 52.29 (source units). Rule-based risk: low.\nOnion: 9 similar historical cases support Onion (e.g. TS-915F64F879, TS-62BDD3DBEE). Median historical yield among them: 12.00 (source units). Rule-based risk: low.\nGarlic: 7 similar historical cases support Garlic (e.g. TM-02A32A9C64, TS-67B2106A5C). Median historical yield among them: 4.24 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": null,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "Recall not computed: relevance = any record in state+season (hundreds of relevant cases)"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": {
+        "n_recommendations": 5,
+        "all_recommended_crops_recorded_in_state_season": true,
+        "recommended_crops": [
+          "Tobacco",
+          "Potato",
+          "Sugarcane",
+          "Onion",
+          "Garlic"
+        ],
+        "has_supporting_case_ids": true,
+        "missing_info_disclosed": true,
+        "unsupported_numeric_claims": 0,
+        "judge_deterministic_passed": true
+      },
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "passed": true
+    },
+    {
+      "test_case_id": "REC-02",
+      "type": "conditions_recommendation",
+      "input": "Which crops have historically performed well in West Bengal during the Rabi season? Soil pH is 6.2, rainfall about 1716 mm and mean temperature 25.7 C.",
+      "expected": {
+        "state": "West Bengal",
+        "season": "Rabi",
+        "allowed_crops": [
+          "Arhar/Tur",
+          "Barley",
+          "Castor seed",
+          "Dry chillies",
+          "Gram",
+          "Groundnut",
+          "Horse-gram",
+          "Khesari",
+          "Linseed",
+          "Maize",
+          "Masoor",
+          "Moong(Green Gram)",
+          "Moth",
+          "Niger seed",
+          "Other Rabi pulses",
+          "Peas & beans (Pulses)",
+          "Potato",
+          "Ragi",
+          "Rapeseed &Mustard",
+          "Safflower",
+          "Sannhamp",
+          "Small millets",
+          "Urad",
+          "Wheat"
+        ]
+      },
+      "expected_relevant_case_ids": [
+        "TM-CB4105D798",
+        "TS-FB20271420",
+        "TS-E09758DCDF",
+        "TM-64C6E43B81",
+        "TS-E8D6F00F07",
+        "TM-E99BC5C53B",
+        "TS-F50098F679",
+        "TS-39F79C5774",
+        "TM-84F5349F1B",
+        "TS-BAB7352663",
+        "TM-AD31A9FDD5",
+        "TS-DDBFD78A59",
+        "TM-3E72A7A181",
+        "TS-EE2A38922D",
+        "TM-E9B660E861",
+        "TS-A6FB105297",
+        "TS-0762585598",
+        "TM-CAA4B2DEC9",
+        "TS-5A88D037B9",
+        "TS-4658D7FE01",
+        "TM-EC96068F79",
+        "TM-7C149686CF",
+        "TS-EA36DCB0AF",
+        "TM-82BECC9816",
+        "TS-6EBDE8F933",
+        "TM-AF20D4195F",
+        "TM-09395F5ED7",
+        "TS-D57E96751B",
+        "TS-728988498E",
+        "TS-79401A4655",
+        "TM-364BBCE630",
+        "TS-A447DD41C6",
+        "TM-1D52F5424E",
+        "TS-0EA1E5CDCF",
+        "TS-23D1789CA3",
+        "TS-6E663BABC3",
+        "TS-646BE819FA",
+        "TM-C58531E6E7",
+        "TS-A027AEB5EE",
+        "TM-C52016FC20",
+        "TS-A43C851AAF",
+        "TM-275F7BE48E",
+        "TS-8AAB1EB124",
+        "TM-252FD106B3",
+        "TS-6F9868B0CA",
+        "TS-79DAB671D5",
+        "TM-12D9271410",
+        "TS-35467685D6",
+        "TS-9BD15B9530",
+        "TM-F6D0D416EF",
+        "TS-8E3DD74871",
+        "TS-DF398E9A40",
+        "TM-4718571946",
+        "TS-C452066DE1",
+        "TS-6ED206ED24",
+        "TM-DB0EC01F7C",
+        "TS-19C7BCB53E",
+        "TS-381C0F713E",
+        "TM-ACFA875EE0",
+        "TS-8163756AE4",
+        "TS-14C619C685",
+        "TM-A3C78F0908",
+        "TS-0EFFCE06F0",
+        "TM-91F762037D",
+        "TS-D0E983A94D",
+        "TM-F9051C3663",
+        "TS-027381ACE0",
+        "TS-FA27D56E2D",
+        "TM-C2B3A91DFF",
+        "TS-9B7E4AC54D",
+        "TS-4FCC1903D6",
+        "TS-51D677D502",
+        "TS-3FED148980",
+        "TS-AC4465D628",
+        "TM-F44A443FCA",
+        "TS-13F5D59365",
+        "TS-13D0AF1AFA",
+        "TS-49EDFFCDC4",
+        "TM-09DF81D0D8",
+        "TS-A16FB5E3A1",
+        "TM-CA809B9CDA",
+        "TS-03B0AB176D",
+        "TM-8EDBD59C5C",
+        "TS-762C125637",
+        "TS-07E0C1B1CC",
+        "TM-0AF30895F7",
+        "TS-4AFC87705B",
+        "TS-925FD31565",
+        "TS-C2A1AABCDB",
+        "TM-CD3365FD0B",
+        "TS-C138CF3B42",
+        "TS-39BADF835C",
+        "TM-4F6CF58370",
+        "TS-FBD10C4ED7",
+        "TS-D437A933D7",
+        "TM-70D0DD6BBE",
+        "TS-3779D6381F",
+        "TS-273126C163",
+        "TM-AD9BB19927",
+        "TS-BA9F4AB557"
+      ],
+      "n_expected_relevant": 991,
+      "reference_answer": "In West Bengal during the Rabi season the most frequently recorded crops are Moong(Green Gram) (70 records), Gram (68 records), Wheat (68 records), Urad (66 records), Barley (64 records).",
+      "provenance": "anchor record TM-938E4CCCB6; allowed crops = crops with >=1 record in state+season",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TM-938E4CCCB6",
+        "TM-7DA1509D62",
+        "TM-DE59EB0F7C",
+        "TS-2CBEF41063",
+        "TS-927DC72F3B",
+        "TS-35641E64DA",
+        "TS-264E86196A",
+        "TS-1EB60E4BD0",
+        "TS-278DAE7133",
+        "TS-78A0CE6FAF"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Gram, Wheat, Maize. Ranking is a heuristic over case similarity, not a guarantee of yield.\nGram: 21 similar historical cases support Gram (e.g. TM-7DA1509D62, TS-927DC72F3B). Median historical yield among them: 1.10 (source units). Rule-based risk: low.\nWheat: 15 similar historical cases support Wheat (e.g. TM-938E4CCCB6, TS-2CBEF41063). Median historical yield among them: 2.34 (source units). Rule-based risk: low.\nMaize: 4 similar historical cases support Maize (e.g. TM-DE59EB0F7C, TS-1BA06A3A73). Median historical yield among them: 3.44 (source units). Rule-based risk: low.\nKhesari: 3 similar historical cases support Khesari (e.g. TM-FDDA086AD8, TS-64B45DC08D). Median historical yield among them: 0.90 (source units). Rule-based risk: low.\nOther Rabi pulses: 2 similar historical cases support Other Rabi pulses (e.g. TS-8220859004, TS-EDC8D38714). Median historical yield among them: 0.61 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": null,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "Recall not computed: relevance = any record in state+season (hundreds of relevant cases)"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": {
+        "n_recommendations": 5,
+        "all_recommended_crops_recorded_in_state_season": true,
+        "recommended_crops": [
+          "Gram",
+          "Wheat",
+          "Maize",
+          "Khesari",
+          "Other Rabi pulses"
+        ],
+        "has_supporting_case_ids": true,
+        "missing_info_disclosed": true,
+        "unsupported_numeric_claims": 0,
+        "judge_deterministic_passed": true
+      },
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "passed": true
+    },
+    {
+      "test_case_id": "REC-03",
+      "type": "conditions_recommendation",
+      "input": "Which crops have historically performed well in Himachal Pradesh during the Whole Year season? Soil pH is 6, rainfall about 920 mm and mean temperature 21.4 C.",
+      "expected": {
+        "state": "Himachal Pradesh",
+        "season": "Whole Year",
+        "allowed_crops": [
+          "Coriander",
+          "Cotton(lint)",
+          "Dry chillies",
+          "Garlic",
+          "Ginger",
+          "Onion",
+          "Potato",
+          "Sannhamp",
+          "Sugarcane",
+          "Sweet potato",
+          "Tobacco",
+          "Turmeric"
+        ]
+      },
+      "expected_relevant_case_ids": [
+        "TM-056720572A",
+        "TS-32658E7504",
+        "TS-C175F5B2FF",
+        "TS-7F63485673",
+        "TM-4A8F5850E5",
+        "TS-CF954FC7AB",
+        "TS-FFBF1FB1E2",
+        "TM-7023FE6E8F",
+        "TS-B07991B3EA",
+        "TM-8199FD9E29",
+        "TS-2489F9EFC2",
+        "TS-5A939B5816",
+        "TS-6FBED2F858",
+        "TS-82E02EDED9",
+        "TM-E005499593",
+        "TS-9D16FE17CD",
+        "TS-63A9E69A54",
+        "TS-90AFE6E1C3",
+        "TM-0550210670",
+        "TM-6AC7403BB0",
+        "TS-260924BCF1",
+        "TM-ABAF5C6F03",
+        "TS-D3FB8CEC34",
+        "TS-19EE2E9212",
+        "TS-977A6B2B40",
+        "TS-ADCABABA65",
+        "TS-4DDB6C92BB",
+        "TS-B6E42346C4",
+        "TM-0645FC0C56",
+        "TS-E39048719C",
+        "TM-F7FB0A536B",
+        "TM-3DA99B97A5",
+        "TS-5115391F76",
+        "TS-7387CE879A",
+        "TS-0461B8B184",
+        "TS-891A6507A3",
+        "TS-1D56FB92F0",
+        "TM-AA15F5A7EA",
+        "TM-B8229C5005",
+        "TS-74C0448138",
+        "TS-221780E9E5",
+        "TM-F777927FB6",
+        "TS-8BEE5BE259",
+        "TS-879E327B2F",
+        "TS-2E9E5A9DA5",
+        "TS-EFA8AA913D",
+        "TS-4618957BD0",
+        "TS-5E6B4B3330",
+        "TM-7C40C73934",
+        "TS-9786A26CDA",
+        "TS-C7C35E57F7",
+        "TM-CA5973BDC8",
+        "TS-6508A60541",
+        "TS-298F8E81EB",
+        "TM-4D649E8796",
+        "TS-BC4D92F108",
+        "TM-F92D38FE3B",
+        "TS-D060563064",
+        "TM-14CB82DA23",
+        "TS-9604C1944B",
+        "TM-77383FCD86",
+        "TS-5A789A9558",
+        "TM-F4991A95E9",
+        "TM-8994694FA9",
+        "TS-C16D105036",
+        "TS-BD780B05A5",
+        "TS-109E646207",
+        "TS-35C1530C48",
+        "TS-2816CB92DC",
+        "TS-FDA9248AC6",
+        "TS-4AF803569A",
+        "TM-38B0543157",
+        "TS-F2B6B53008",
+        "TM-B36C2AB5BE",
+        "TS-169F3F5005",
+        "TS-0B4A0E0D63",
+        "TS-A8C527A889",
+        "TM-3B0ECD4325",
+        "TS-1BE530A66C",
+        "TS-60D5DE6938",
+        "TS-3FC07C9915",
+        "TS-F5D81BB2FA",
+        "TS-0576045461",
+        "TS-C74B0FEF91",
+        "TS-6032255A0E",
+        "TS-89458FABC3",
+        "TM-AB4FA9A9AB",
+        "TS-23B5864DAA",
+        "TM-FE6547C53D",
+        "TS-B828AB6189",
+        "TS-AFC9C6AAD7",
+        "TS-0CD0B73963",
+        "TM-C2375F15B7",
+        "TS-2070CE528C",
+        "TM-323BCAB496",
+        "TS-E0BA08F175",
+        "TS-963BC81FFF",
+        "TM-40D91ECD41",
+        "TM-8594633CCD",
+        "TS-ABE3392065"
+      ],
+      "n_expected_relevant": 145,
+      "reference_answer": "In Himachal Pradesh during the Whole Year season the most frequently recorded crops are Sugarcane (54 records), Potato (21 records), Tobacco (13 records), Turmeric (13 records), Dry chillies (12 records).",
+      "provenance": "anchor record TS-2A8C1F8BD9; allowed crops = crops with >=1 record in state+season",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-2A8C1F8BD9",
+        "TS-037E4A0305",
+        "TM-2DA557BAAC",
+        "TS-169F3F5005",
+        "TM-19FCB6FA6F",
+        "TS-0B4A0E0D63",
+        "TS-BE18268820",
+        "TS-A8C527A889",
+        "TS-AB91D243B5",
+        "TS-3341B1A86A"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Tobacco, Sugarcane, Potato. Ranking is a heuristic over case similarity, not a guarantee of yield.\nTobacco: 13 similar historical cases support Tobacco (e.g. TS-2A8C1F8BD9, TS-037E4A0305). Median historical yield among them: 0.72 (source units). Rule-based risk: low.\nSugarcane: 35 similar historical cases support Sugarcane (e.g. TS-169F3F5005, TS-0B4A0E0D63). Median historical yield among them: 16.37 (source units). Rule-based risk: low.\nPotato: 4 similar historical cases support Potato (e.g. TM-7C40C73934, TS-9786A26CDA). Median historical yield among them: 10.03 (source units). Rule-based risk: low.\nCoriander: 3 similar historical cases support Coriander (e.g. TS-C175F5B2FF, TS-7F63485673). Median historical yield among them: 1.19 (source units). Rule-based risk: low.\nGarlic: 2 similar historical cases support Garlic (e.g. TS-E39048719C, TM-0645FC0C56). Median historical yield among them: 0.98 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": null,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "Recall not computed: relevance = any record in state+season (hundreds of relevant cases)"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": {
+        "n_recommendations": 5,
+        "all_recommended_crops_recorded_in_state_season": true,
+        "recommended_crops": [
+          "Tobacco",
+          "Sugarcane",
+          "Potato",
+          "Coriander",
+          "Garlic"
+        ],
+        "has_supporting_case_ids": true,
+        "missing_info_disclosed": true,
+        "unsupported_numeric_claims": 0,
+        "judge_deterministic_passed": true
+      },
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "passed": true
+    },
+    {
+      "test_case_id": "REC-04",
+      "type": "conditions_recommendation",
+      "input": "Which crops have historically performed well in Madhya Pradesh during the Kharif season? Soil pH is 7.4, rainfall about 1822 mm and mean temperature 25.5 C.",
+      "expected": {
+        "state": "Madhya Pradesh",
+        "season": "Kharif",
+        "allowed_crops": [
+          "Arhar/Tur",
+          "Bajra",
+          "Barley",
+          "Castor seed",
+          "Cotton(lint)",
+          "Cowpea(Lobia)",
+          "Ginger",
+          "Groundnut",
+          "Horse-gram",
+          "Jowar",
+          "Jute",
+          "Maize",
+          "Mesta",
+          "Moong(Green Gram)",
+          "Niger seed",
+          "Other Cereals",
+          "Other Kharif pulses",
+          "Ragi",
+          "Rice",
+          "Sannhamp",
+          "Sesamum",
+          "Small millets",
+          "Soyabean",
+          "Sunflower",
+          "Urad"
+        ]
+      },
+      "expected_relevant_case_ids": [
+        "TM-C2C02F1F51",
+        "TS-33F23401EA",
+        "TS-222ECCE2CA",
+        "TS-FA0DCC4526",
+        "TM-4971CC05C0",
+        "TS-F1C4CACCF4",
+        "TS-CB2978EB11",
+        "TM-FC5E5507A1",
+        "TS-E14226708B",
+        "TS-BD3B6E235F",
+        "TM-FDCE5F0AE7",
+        "TS-1940AA2713",
+        "TS-6B9B0C1E80",
+        "TM-6CDEAB8AF5",
+        "TS-2E5925C837",
+        "TS-5A226C0736",
+        "TM-3D06732527",
+        "TS-6E7F68B0AC",
+        "TM-06353E7F7A",
+        "TS-8B3D361D49",
+        "TM-E8BAB652ED",
+        "TS-B7A765CD3E",
+        "TS-C656BEEC2F",
+        "TS-DBC1F9EA6C",
+        "TS-41D8A16D55",
+        "TM-7255B45927",
+        "TS-3081DB2255",
+        "TS-6CF843C58C",
+        "TS-F6AE8226F6",
+        "TM-51B4C33719",
+        "TS-6878DAC0D2",
+        "TM-2EE722D14C",
+        "TS-78964050DF",
+        "TS-962327757A",
+        "TM-CCED180299",
+        "TM-03E66C2585",
+        "TS-362FA050D7",
+        "TM-49BD14112C",
+        "TM-29A4B0225E",
+        "TS-61F911415F",
+        "TM-B8B227198A",
+        "TS-AE1DDCD737",
+        "TS-4BDC10FCFB",
+        "TS-837558A34D",
+        "TM-70217851F7",
+        "TS-7113B7030D",
+        "TS-90DF0B0C4E",
+        "TM-7832A685DF",
+        "TS-2E67A76C07",
+        "TM-DD08F29FEF",
+        "TM-C9C78D2600",
+        "TS-71111F1F8B",
+        "TM-CF7C0731C2",
+        "TS-59A8506653",
+        "TS-EB99973EEB",
+        "TM-D105570DD0",
+        "TS-CE9226CA4A",
+        "TS-B8436A6FBE",
+        "TS-D46B0287EB",
+        "TS-DD92F9443D",
+        "TM-E08B0379DD",
+        "TS-AB5F204147",
+        "TM-2D4A9EF5AD",
+        "TS-270A864670",
+        "TM-77AE247B11",
+        "TS-A10EEFC414",
+        "TM-41DDAAC11E",
+        "TS-88C326BED4",
+        "TS-ED1F9E2DDA",
+        "TM-6B810ACD87",
+        "TS-0C5B0B856E",
+        "TS-6260AE52D2",
+        "TS-4B070326CD",
+        "TM-DD88E2E1F3",
+        "TS-A9EA3DA883",
+        "TM-885D52D757",
+        "TM-69310F3F89",
+        "TS-E869ECEDFF",
+        "TM-71D9F479A5",
+        "TM-8504C21DD6",
+        "TS-C6E4B7D5DF",
+        "TM-465FCB6653",
+        "TS-8762585F72",
+        "TS-78845EC2E8",
+        "TM-D6FDC89319",
+        "TS-8E70542559",
+        "TS-F8F8712351",
+        "TM-097451872C",
+        "TS-6D4777374D",
+        "TS-68B6778B79",
+        "TS-F93774C123",
+        "TS-4173B350EB",
+        "TM-C73D54C3C5",
+        "TS-41F14D623E",
+        "TM-8536AC32C4",
+        "TS-72DAF08EAF",
+        "TS-3C1D820F18",
+        "TS-40E934F09E",
+        "TM-92D5A09DC7",
+        "TS-EE9B1A18AA"
+      ],
+      "n_expected_relevant": 1028,
+      "reference_answer": "In Madhya Pradesh during the Kharif season the most frequently recorded crops are Groundnut (67 records), Jowar (64 records), Soyabean (64 records), Arhar/Tur (60 records), Cotton(lint) (60 records).",
+      "provenance": "anchor record TM-0F17012F7C; allowed crops = crops with >=1 record in state+season",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TM-4491DC6BA9",
+        "TS-2BD62AA14D",
+        "TS-9F59FB8EEB",
+        "TS-34F0398CAF",
+        "TM-14145A46E2",
+        "TS-D379A9279D",
+        "TS-8DAFC00508",
+        "TM-EF5AAA84D6",
+        "TS-F4FF217C66",
+        "TS-0DC9494C20"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Maize, Rice, Jowar. Ranking is a heuristic over case similarity, not a guarantee of yield.\nMaize: 24 similar historical cases support Maize (e.g. TM-4491DC6BA9, TS-2BD62AA14D). Median historical yield among them: 1.25 (source units). Rule-based risk: low.\nRice: 5 similar historical cases support Rice (e.g. TS-34F0398CAF, TM-14145A46E2). Median historical yield among them: 1.04 (source units). Rule-based risk: low.\nJowar: 3 similar historical cases support Jowar (e.g. TS-0DC9494C20, TM-3C44067AF8). Median historical yield among them: 1.09 (source units). Rule-based risk: low.\nOther Kharif pulses: 3 similar historical cases support Other Kharif pulses (e.g. TM-EBA1D3407D, TS-8A3FE4A64E). Median historical yield among them: 1.06 (source units). Rule-based risk: low.\nGroundnut: 3 similar historical cases support Groundnut (e.g. TS-F077540A0E, TM-313C2636DA). Median historical yield among them: 1.49 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": null,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "Recall not computed: relevance = any record in state+season (hundreds of relevant cases)"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": {
+        "n_recommendations": 5,
+        "all_recommended_crops_recorded_in_state_season": true,
+        "recommended_crops": [
+          "Maize",
+          "Rice",
+          "Jowar",
+          "Other Kharif pulses",
+          "Groundnut"
+        ],
+        "has_supporting_case_ids": true,
+        "missing_info_disclosed": true,
+        "unsupported_numeric_claims": 0,
+        "judge_deterministic_passed": true
+      },
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "passed": true
+    },
+    {
+      "test_case_id": "REC-05",
+      "type": "conditions_recommendation",
+      "input": "Which crops have historically performed well in Meghalaya during the Winter season? Soil pH is 5.6, rainfall about 5244 mm and mean temperature 18.4 C.",
+      "expected": {
+        "state": "Meghalaya",
+        "season": "Winter",
+        "allowed_crops": [
+          "Potato",
+          "Rice"
+        ]
+      },
+      "expected_relevant_case_ids": [
+        "TM-991308E8F1",
+        "TM-3026D07E5A",
+        "TM-FDC798C42A",
+        "TM-B064DABA77",
+        "TS-CFCD34CEFA",
+        "TS-E2CA616D46",
+        "TM-1AD72F6A9A",
+        "TS-119D7AD97D",
+        "TS-35B796B70F",
+        "TM-3056421E21",
+        "TS-D174C11F48",
+        "TS-9D1D83CD88",
+        "TS-6622F10766",
+        "TM-F0041B9C1B",
+        "TM-EF401F65F3",
+        "TS-67394B2AD6",
+        "TM-68326D3492",
+        "TS-B4B1EF418B",
+        "TM-43E1A7A426",
+        "TS-2D7A6D2C98",
+        "TS-689A5EB38C",
+        "TM-9B7A95783E",
+        "TM-45A13ADC54",
+        "TS-A9B868785A",
+        "TM-98F866D457",
+        "TS-EA3E0E81C3",
+        "TS-4F005AF0F7",
+        "TS-51D38ED36D",
+        "TS-28E611F1EF",
+        "TM-5B7D13C516",
+        "TS-10BD396000",
+        "TS-CBAEB6B7CA",
+        "TM-490769C515",
+        "TS-4743FC40F1",
+        "TS-BF80CBFA8E",
+        "TS-544DD31A1E",
+        "TM-27412C3466",
+        "TS-DEBD7E41B6",
+        "TS-4F76866218",
+        "TM-5AD4845144",
+        "TS-8E1D05326E",
+        "TS-8097D5FA2E",
+        "TS-8269433AB4",
+        "TM-A12B6F9F6F",
+        "TM-9733D5D5F1",
+        "TS-FEE18FA421",
+        "TM-8FE3B45FF5",
+        "TS-F800EAF4F9",
+        "TS-7915BC49C4",
+        "TS-47F7372A0C",
+        "TM-E3DE19C9DF",
+        "TS-2C878234E1",
+        "TS-435A0C576E",
+        "TM-5263307F2A",
+        "TS-C7ACABF453",
+        "TS-2BBA20567F"
+      ],
+      "n_expected_relevant": 56,
+      "reference_answer": "In Meghalaya during the Winter season the most frequently recorded crops are Rice (43 records), Potato (13 records).",
+      "provenance": "anchor record TS-7915BC49C4; allowed crops = crops with >=1 record in state+season",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TM-8FE3B45FF5",
+        "TS-F800EAF4F9",
+        "TS-7915BC49C4",
+        "TS-47F7372A0C",
+        "TS-FEE18FA421",
+        "TM-9733D5D5F1",
+        "TS-E2CA616D46",
+        "TM-B064DABA77",
+        "TS-435A0C576E",
+        "TS-CFCD34CEFA"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Rice, Potato. Ranking is a heuristic over case similarity, not a guarantee of yield.\nRice: 43 similar historical cases support Rice (e.g. TM-8FE3B45FF5, TS-F800EAF4F9). Median historical yield among them: 2.10 (source units). Rule-based risk: low.\nPotato: 13 similar historical cases support Potato (e.g. TS-E2CA616D46, TM-B064DABA77). Median historical yield among them: 6.60 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": null,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "Recall not computed: relevance = any record in state+season (hundreds of relevant cases)"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": {
+        "n_recommendations": 2,
+        "all_recommended_crops_recorded_in_state_season": true,
+        "recommended_crops": [
+          "Rice",
+          "Potato"
+        ],
+        "has_supporting_case_ids": true,
+        "missing_info_disclosed": true,
+        "unsupported_numeric_claims": 0,
+        "judge_deterministic_passed": true
+      },
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "passed": true
+    },
+    {
+      "test_case_id": "REC-06",
+      "type": "conditions_recommendation",
+      "input": "Which crops have historically performed well in Assam during the Kharif season? Soil pH is 5.8, rainfall about 2105 mm and mean temperature 22.8 C.",
+      "expected": {
+        "state": "Assam",
+        "season": "Kharif",
+        "allowed_crops": [
+          "Arhar/Tur",
+          "Castor seed",
+          "Cotton(lint)",
+          "Jute",
+          "Maize",
+          "Mesta",
+          "Niger seed",
+          "Sesamum",
+          "Small millets",
+          "Sugarcane"
+        ]
+      },
+      "expected_relevant_case_ids": [
+        "TM-936E562D6C",
+        "TS-C6A7E74B5C",
+        "TM-79B3160768",
+        "TS-DC07EB9224",
+        "TS-22B060427E",
+        "TM-4178672DCB",
+        "TS-A90B0DF0D7",
+        "TM-A5067E1272",
+        "TS-777EA87E6C",
+        "TS-3D41F60394",
+        "TS-0338C75E49",
+        "TM-37A15F1C4B",
+        "TS-21C82ECD74",
+        "TM-F20774B39A",
+        "TS-C8DF79AAE2",
+        "TS-D05AECF139",
+        "TS-3110C481FF",
+        "TM-0088DE7CD7",
+        "TS-494F37CF51",
+        "TM-FC514BCCD6",
+        "TM-F2E65E1377",
+        "TS-92AA29ED81",
+        "TS-3FAA86F86B",
+        "TM-66EBB59153",
+        "TS-5DC06AD9E3",
+        "TS-2A7704A09C",
+        "TM-E37257AB15",
+        "TM-0E7F0358B9",
+        "TM-1C984EF5DE",
+        "TM-8C3BD27CBB",
+        "TS-9E3B3FBCFC",
+        "TS-F2C85B8274",
+        "TS-9B2A4FF9CC",
+        "TS-7E50491BCA",
+        "TM-DC52816910",
+        "TS-897B84C6B7",
+        "TS-489E6192FA",
+        "TS-007D35803F",
+        "TS-3DE0D24F61",
+        "TM-2F3E9423C7",
+        "TS-E2ADACB4E9",
+        "TM-166058EF1E",
+        "TS-76E16CCF25",
+        "TS-CBBB02BE93",
+        "TS-8984CE2B1E",
+        "TM-5FB60B2DEB",
+        "TS-130A2A0E6B",
+        "TS-1F91444575",
+        "TS-17F354CE89",
+        "TM-D2AB2187B2",
+        "TS-BFEA3B8A54",
+        "TM-679792B4AF",
+        "TS-6E54E52E7E",
+        "TS-AE02D1B9B2",
+        "TS-D2843A7FAC",
+        "TM-00C05F206D",
+        "TS-C6DE39A7DE",
+        "TS-2F0F14557D",
+        "TM-895C9F024E",
+        "TS-795541533C",
+        "TM-21C3482593",
+        "TS-7E5F445542",
+        "TS-220A76A4CD",
+        "TM-A5AA36DB84",
+        "TM-9D54E83A60",
+        "TM-73D33E7833",
+        "TS-4C4A57CAF3",
+        "TS-EE7068C7AF",
+        "TS-A0B3DAEC0E",
+        "TM-35DAD15FBC",
+        "TS-10B700A6EB",
+        "TS-4DB441FF67",
+        "TM-A5DAFC6990",
+        "TS-22548BCDF0",
+        "TS-7F8E359F7E",
+        "TM-2A3728F741",
+        "TM-00272CA56D",
+        "TS-CC83E353A8",
+        "TS-E5982B3F91",
+        "TS-F66DF9FBEE",
+        "TS-4C237A20D2",
+        "TS-E62884A497",
+        "TM-DEFB488FBB",
+        "TS-FC00E657D6",
+        "TM-69FA012868",
+        "TS-08449A66B3",
+        "TS-377A11A80A",
+        "TM-390C11B44B",
+        "TS-BB6BEE5706",
+        "TS-EAE58D084F",
+        "TS-34F6AB8E0C",
+        "TS-7374FD707A",
+        "TM-9FD575FDAB",
+        "TS-5B4C93C4A8",
+        "TM-4E06BC19EC",
+        "TM-E82FC9C71E",
+        "TS-AC29275AC3",
+        "TM-D4EFC6C922",
+        "TS-F51E222E29",
+        "TS-240D5153DD"
+      ],
+      "n_expected_relevant": 601,
+      "reference_answer": "In Assam during the Kharif season the most frequently recorded crops are Maize (77 records), Mesta (76 records), Castor seed (67 records), Sesamum (67 records), Cotton(lint) (66 records).",
+      "provenance": "anchor record TM-9E862F23F7; allowed crops = crops with >=1 record in state+season",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-DFF68A0F7F",
+        "TM-D6CABBCF76",
+        "TS-090F9154BF",
+        "TS-83C46FBE6F",
+        "TM-033183F755",
+        "TS-5C2F3384DC",
+        "TM-DD3E75A203",
+        "TM-70994B7B67",
+        "TM-607E0CDFB7",
+        "TS-2DDE98891C"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Maize, Small millets, Jute. Ranking is a heuristic over case similarity, not a guarantee of yield.\nMaize: 32 similar historical cases support Maize (e.g. TS-DFF68A0F7F, TM-D6CABBCF76). Median historical yield among them: 0.75 (source units). Rule-based risk: low.\nSmall millets: 4 similar historical cases support Small millets (e.g. TM-DD3E75A203, TS-712915D980). Median historical yield among them: 0.52 (source units). Rule-based risk: low.\nJute: 6 similar historical cases support Jute (e.g. TS-F2EC5842C3, TM-153274E8B7). Median historical yield among them: 11.01 (source units). Rule-based risk: low.\nSesamum: 4 similar historical cases support Sesamum (e.g. TS-8C001FB2AE, TS-B57D9B2F23). Median historical yield among them: 0.50 (source units). Rule-based risk: low.\nMesta: 7 similar historical cases support Mesta (e.g. TS-C054063BD6, TS-9BBAD7ECFE). Median historical yield among them: 4.58 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": null,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "Recall not computed: relevance = any record in state+season (hundreds of relevant cases)"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": {
+        "n_recommendations": 5,
+        "all_recommended_crops_recorded_in_state_season": true,
+        "recommended_crops": [
+          "Maize",
+          "Small millets",
+          "Jute",
+          "Sesamum",
+          "Mesta"
+        ],
+        "has_supporting_case_ids": true,
+        "missing_info_disclosed": true,
+        "unsupported_numeric_claims": 0,
+        "judge_deterministic_passed": true
+      },
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "passed": true
+    },
+    {
+      "test_case_id": "REC-07",
+      "type": "conditions_recommendation",
+      "input": "Which crops have historically performed well in Andhra Pradesh during the Rabi season? Soil pH is 6.8, rainfall about 936 mm and mean temperature 28.0 C.",
+      "expected": {
+        "state": "Andhra Pradesh",
+        "season": "Rabi",
+        "allowed_crops": [
+          "Arhar/Tur",
+          "Bajra",
+          "Castor seed",
+          "Coriander",
+          "Cotton(lint)",
+          "Cowpea(Lobia)",
+          "Dry chillies",
+          "Ginger",
+          "Gram",
+          "Groundnut",
+          "Guar seed",
+          "Horse-gram",
+          "Jowar",
+          "Linseed",
+          "Maize",
+          "Masoor",
+          "Mesta",
+          "Moong(Green Gram)",
+          "Niger seed",
+          "Oilseeds total",
+          "Onion",
+          "Other Rabi pulses",
+          "Potato",
+          "Ragi",
+          "Rapeseed &Mustard",
+          "Rice",
+          "Safflower",
+          "Sannhamp",
+          "Sesamum",
+          "Small millets",
+          "Soyabean",
+          "Sunflower",
+          "Sweet potato",
+          "Tapioca",
+          "Tobacco",
+          "Urad",
+          "Wheat",
+          "other oilseeds"
+        ]
+      },
+      "expected_relevant_case_ids": [
+        "TM-5DC64DDF2A",
+        "TM-7028DC37FC",
+        "TS-229559D6B8",
+        "TS-EACB329E78",
+        "TS-294F707823",
+        "TS-8F9B374A85",
+        "TM-9ACDEEAC72",
+        "TS-29AEF19E95",
+        "TS-9A8D2871AA",
+        "TM-3CB759FDA9",
+        "TS-ACAC64B03A",
+        "TM-E6F94D84A1",
+        "TS-C65FC73856",
+        "TM-B6E5CD2A46",
+        "TS-2EC41DF795",
+        "TM-F349015726",
+        "TS-D8D653D5C3",
+        "TS-E026476C7C",
+        "TS-18A4324F9E",
+        "TS-60E1062F57",
+        "TM-C77A7842A5",
+        "TS-B41A92DE91",
+        "TS-8D4D108484",
+        "TS-B6213CF35B",
+        "TS-20023989BE",
+        "TS-6E5EFF7FD7",
+        "TM-5DF11119E0",
+        "TM-31999C459D",
+        "TS-F5BCF99F99",
+        "TM-908C00BC60",
+        "TS-23D04B3F4F",
+        "TS-D77191551A",
+        "TM-B21D53B858",
+        "TS-8B59BD7379",
+        "TM-BCF2669590",
+        "TS-6379DF7ADB",
+        "TM-F25EA90DE2",
+        "TS-09D79CC33C",
+        "TS-32B224DDFA",
+        "TM-19AC944AD0",
+        "TS-D2C917F88C",
+        "TM-9E069DA567",
+        "TS-91D549C8BA",
+        "TM-58AA71A7B8",
+        "TS-1B9EC70AE3",
+        "TM-6A0258CCF0",
+        "TS-640C3836E5",
+        "TS-5CFC90A3CE",
+        "TS-6EC8FDA672",
+        "TM-280A1F341D",
+        "TM-856A52C750",
+        "TM-3598FCBD61",
+        "TS-0BB000307D",
+        "TS-9C4A3DFB5A",
+        "TS-4441EC2F2E",
+        "TM-6A65C0FD9B",
+        "TS-98AAF3ABDF",
+        "TM-532F99EA21",
+        "TS-4618D7EE8F",
+        "TS-254829E646",
+        "TM-60B16C5AAB",
+        "TS-3937C089B7",
+        "TM-393724331A",
+        "TS-2D4933DA21",
+        "TM-07BF49CDCA",
+        "TS-BACEE807A2",
+        "TS-FD745B0A9B",
+        "TM-2D37CF9528",
+        "TS-39096E1A74",
+        "TM-4AA34C185A",
+        "TM-E50D5C4DEB",
+        "TS-FBEE481FF5",
+        "TS-90798C667D",
+        "TM-D3E3800052",
+        "TS-CA4F2713D7",
+        "TM-D2750C8553",
+        "TS-975EB9E405",
+        "TS-CFCC8DEA70",
+        "TM-995B08804B",
+        "TS-759F7C8F8C",
+        "TS-A6AF75F86C",
+        "TS-74135C2359",
+        "TS-6AF841EE73",
+        "TS-0A6DCA8652",
+        "TM-6B2981BE62",
+        "TS-A500FC766F",
+        "TM-D5582AE261",
+        "TS-E4BB3D5191",
+        "TM-FC7E33806F",
+        "TS-C664B64FA0",
+        "TS-DA33E4E5E8",
+        "TS-1F73780CE7",
+        "TM-ECA08CD282",
+        "TS-949AA37E2B",
+        "TS-AE02D62CA8",
+        "TS-30B8F6685E",
+        "TS-0FAAF4C4D6",
+        "TM-45968938DA",
+        "TS-3DF5861DC5",
+        "TS-7E4D9F01B2"
+      ],
+      "n_expected_relevant": 1480,
+      "reference_answer": "In Andhra Pradesh during the Rabi season the most frequently recorded crops are Groundnut (78 records), Ragi (68 records), Sesamum (68 records), Bajra (67 records), Urad (66 records).",
+      "provenance": "anchor record TS-B2C0FBBA66; allowed crops = crops with >=1 record in state+season",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TM-C0332B7F00",
+        "TS-5BEB185329",
+        "TS-2A2CFA9D99",
+        "TM-D56321E002",
+        "TS-737E20C9D7",
+        "TS-3BFCAF3B75",
+        "TS-96E3571271",
+        "TS-D1B36D5EC0",
+        "TM-B17CC8E62D",
+        "TS-6158C30E8A"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Wheat, Gram, Bajra. Ranking is a heuristic over case similarity, not a guarantee of yield.\nWheat: 11 similar historical cases support Wheat (e.g. TM-C0332B7F00, TS-2A2CFA9D99). Median historical yield among them: 0.66 (source units). Rule-based risk: low.\nGram: 23 similar historical cases support Gram (e.g. TS-5BEB185329, TM-D56321E002). Median historical yield among them: 1.33 (source units). Rule-based risk: low.\nBajra: 5 similar historical cases support Bajra (e.g. TM-264D7F4724, TS-E7929C130B). Median historical yield among them: 1.64 (source units). Rule-based risk: low.\nOther Rabi pulses: 4 similar historical cases support Other Rabi pulses (e.g. TS-E793C3DEE8, TM-0B79A181EF). Median historical yield among them: 0.75 (source units). Rule-based risk: low.\nJowar: 3 similar historical cases support Jowar (e.g. TS-F6F33B71E2, TM-DD3FB50B4D). Median historical yield among them: 0.80 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": null,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "Recall not computed: relevance = any record in state+season (hundreds of relevant cases)"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": {
+        "n_recommendations": 5,
+        "all_recommended_crops_recorded_in_state_season": true,
+        "recommended_crops": [
+          "Wheat",
+          "Gram",
+          "Bajra",
+          "Other Rabi pulses",
+          "Jowar"
+        ],
+        "has_supporting_case_ids": true,
+        "missing_info_disclosed": true,
+        "unsupported_numeric_claims": 0,
+        "judge_deterministic_passed": true
+      },
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "passed": true
+    },
+    {
+      "test_case_id": "REC-08",
+      "type": "conditions_recommendation",
+      "input": "Which crops have historically performed well in Meghalaya during the Autumn season? Soil pH is 5.6, rainfall about 5244 mm and mean temperature 18.4 C.",
+      "expected": {
+        "state": "Meghalaya",
+        "season": "Autumn",
+        "allowed_crops": [
+          "Rice"
+        ]
+      },
+      "expected_relevant_case_ids": [
+        "TM-7E1CDF354B",
+        "TM-AF38E9FBC3",
+        "TS-299A6DD263",
+        "TS-483046404E",
+        "TM-0EC647812B",
+        "TS-660A8B05F7",
+        "TM-9B3C9131BC",
+        "TS-0FD0152DC4",
+        "TS-DC0FF61F7F",
+        "TM-BE42B862B6",
+        "TM-6F37E6570B",
+        "TS-95FB474827",
+        "TS-8CA112496E",
+        "TS-79F0619D2B",
+        "TM-97CE7B81F7",
+        "TS-F7BE102B75",
+        "TS-4E658EE8DD",
+        "TS-14CE0516FB",
+        "TM-CB7C4A67FE",
+        "TS-C438B1A484",
+        "TM-82813582CC",
+        "TM-5EA83ACEC6",
+        "TS-885854EA0F",
+        "TS-AB831C619B",
+        "TM-5489F556DB",
+        "TS-758F5ABA08",
+        "TS-55D5648C8B",
+        "TM-C87276628D",
+        "TM-B31B802690",
+        "TS-5077CB71F3",
+        "TS-DFD1846989",
+        "TS-E96DF92F09",
+        "TS-38595F219C",
+        "TS-022E011676",
+        "TS-D3BB2F178C",
+        "TS-0DF646695B",
+        "TM-FAB8D4AE29",
+        "TS-A5298272C2",
+        "TS-6FA60EBDA3",
+        "TS-FF67A69C86",
+        "TS-A5D458AB69",
+        "TS-AA85472D7D",
+        "TM-FFDFA3A89B",
+        "TS-719CFC9B47",
+        "TM-6897A503FF",
+        "TS-2DA357B714"
+      ],
+      "n_expected_relevant": 46,
+      "reference_answer": "In Meghalaya during the Autumn season the most frequently recorded crops are Rice (46 records).",
+      "provenance": "anchor record TS-A5D458AB69; allowed crops = crops with >=1 record in state+season",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-AA85472D7D",
+        "TS-FF67A69C86",
+        "TM-FAB8D4AE29",
+        "TS-A5D458AB69",
+        "TS-38595F219C",
+        "TS-6FA60EBDA3",
+        "TS-A5298272C2",
+        "TS-E96DF92F09",
+        "TS-D3BB2F178C",
+        "TS-719CFC9B47"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Rice. Ranking is a heuristic over case similarity, not a guarantee of yield.\nRice: 46 similar historical cases support Rice (e.g. TS-AA85472D7D, TS-FF67A69C86). Median historical yield among them: 1.68 (source units). Rule-based risk: low.",
+      "retrieval_metrics": {
+        "precision_at_k": 1.0,
+        "recall_at_k": null,
+        "mrr": 1.0,
+        "hit_rate_at_k": 1.0,
+        "k": 10,
+        "recall_note": "Recall not computed: relevance = any record in state+season (hundreds of relevant cases)"
+      },
+      "deepeval": {
+        "faithfulness": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "answer_relevancy": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_precision": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        },
+        "contextual_recall": {
+          "available": false,
+          "score": null,
+          "passed": null,
+          "reason": "LLM error (billing): Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry."
+        }
+      },
+      "recommendation_checks": {
+        "n_recommendations": 1,
+        "all_recommended_crops_recorded_in_state_season": true,
+        "recommended_crops": [
+          "Rice"
+        ],
+        "has_supporting_case_ids": true,
+        "missing_info_disclosed": true,
+        "unsupported_numeric_claims": 0,
+        "judge_deterministic_passed": true
+      },
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "passed": true
+    },
+    {
+      "test_case_id": "ABS-01",
+      "type": "abstention",
+      "input": "I want to grow Tobacco in Jharkhand. Is it a good choice?",
+      "expected": {
+        "crop": "Tobacco",
+        "state": "Jharkhand",
+        "records_in_dataset": 0
+      },
+      "expected_relevant_case_ids": [],
+      "n_expected_relevant": 0,
+      "reference_answer": "There are no historical records of Tobacco in Jharkhand; the system should not recommend it on evidence.",
+      "provenance": "verified: 0 records for crop=Tobacco, state=Jharkhand",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-7B1199764E",
+        "TS-7EB3241BE8",
+        "TS-D95E2CFD2E",
+        "TM-F5ED331008",
+        "TM-EF05BAF56E",
+        "TS-D715C22E99",
+        "TS-1AB4E97A40",
+        "TS-AB3F72CDC9",
+        "TS-4FB572B19E",
+        "TM-157DEBB916"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Gram, Sugarcane, Wheat. Ranking is a heuristic over case similarity, not a guarantee of yield.\nGram: 22 similar historical cases support Gram (e.g. TS-7B1199764E, TS-7EB3241BE8). Median historical yield among them: 1.05 (source units). Rule-based risk: low.\nSugarcane: 19 similar historical cases support Sugarcane (e.g. TM-CD656CF716, TS-40E706BC07). Median historical yield among them: 29.87 (source units). Rule-based risk: low.\nWheat: 15 similar historical cases support Wheat (e.g. TS-C3320D29CD, TM-09470B87ED). Median historical yield among them: 1.49 (source units). Rule-based risk: low.\nRice: 1 similar historical cases support Rice (e.g. TS-D95E2CFD2E). Median historical yield among them: 0.58 (source units). Rule-based risk: low.\nJowar: 3 similar historical cases support Jowar (e.g. TS-8C4BC000F8, TS-DA34761114). Median historical yield among them: 0.70 (source units). Rule-based risk: insufficient_information.",
+      "retrieval_metrics": null,
+      "deepeval": null,
+      "recommendation_checks": {
+        "requested_crop": "Tobacco",
+        "recommended_crops": [
+          "Gram",
+          "Sugarcane",
+          "Wheat",
+          "Rice",
+          "Jowar"
+        ],
+        "requested_crop_not_recommended": true,
+        "disclosed_no_evidence": true
+      },
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "passed": true
+    },
+    {
+      "test_case_id": "ABS-02",
+      "type": "abstention",
+      "input": "I want to grow Barley in Gujarat. Is it a good choice?",
+      "expected": {
+        "crop": "Barley",
+        "state": "Gujarat",
+        "records_in_dataset": 0
+      },
+      "expected_relevant_case_ids": [],
+      "n_expected_relevant": 0,
+      "reference_answer": "There are no historical records of Barley in Gujarat; the system should not recommend it on evidence.",
+      "provenance": "verified: 0 records for crop=Barley, state=Gujarat",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TS-B6D3BB6080",
+        "TS-46522149E6",
+        "TM-C0C1B277D9",
+        "TS-BFF830715E",
+        "TS-891AC12605",
+        "TS-5DFDA16410",
+        "TM-07286020CF",
+        "TS-9C9CFB4DDB",
+        "TM-DDC14F9DF7",
+        "TS-C2DE5E44F1"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Wheat, Other Cereals, Bajra. Ranking is a heuristic over case similarity, not a guarantee of yield.\nWheat: 45 similar historical cases support Wheat (e.g. TS-B6D3BB6080, TS-46522149E6). Median historical yield among them: 2.74 (source units). Rule-based risk: low.\nOther Cereals: 5 similar historical cases support Other Cereals (e.g. TM-E3E5F01708, TS-BB0842D88B). Median historical yield among them: 0.50 (source units). Rule-based risk: low.\nBajra: 10 similar historical cases support Bajra (e.g. TS-1FF9F9B7CD, TM-A3CC4CA918). Median historical yield among them: 1.65 (source units). Rule-based risk: low.",
+      "retrieval_metrics": null,
+      "deepeval": null,
+      "recommendation_checks": {
+        "requested_crop": "Barley",
+        "recommended_crops": [
+          "Wheat",
+          "Other Cereals",
+          "Bajra"
+        ],
+        "requested_crop_not_recommended": true,
+        "disclosed_no_evidence": true
+      },
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "passed": true
+    },
+    {
+      "test_case_id": "ABS-03",
+      "type": "abstention",
+      "input": "I want to grow Linseed in Puducherry. Is it a good choice?",
+      "expected": {
+        "crop": "Linseed",
+        "state": "Puducherry",
+        "records_in_dataset": 0
+      },
+      "expected_relevant_case_ids": [],
+      "n_expected_relevant": 0,
+      "reference_answer": "There are no historical records of Linseed in Puducherry; the system should not recommend it on evidence.",
+      "provenance": "verified: 0 records for crop=Linseed, state=Puducherry",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TM-E6CD620679",
+        "TM-B973532EA8",
+        "TS-A099AD371F",
+        "TS-08E0440AF4",
+        "TS-EB98C1BDF0",
+        "TM-60AA7B4E98",
+        "TM-01AD1B646D",
+        "TS-13CA8C559A",
+        "TS-7E89063B3A",
+        "TM-B0954AB0D4"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Bajra, Cotton(lint), Urad. Ranking is a heuristic over case similarity, not a guarantee of yield.\nBajra: 16 similar historical cases support Bajra (e.g. TM-E6CD620679, TS-A099AD371F). Median historical yield among them: 2.47 (source units). Rule-based risk: low.\nCotton(lint): 30 similar historical cases support Cotton(lint) (e.g. TM-B973532EA8, TS-08E0440AF4). Median historical yield among them: 0.91 (source units). Rule-based risk: low.\nUrad: 14 similar historical cases support Urad (e.g. TS-2745153D4D, TS-EB238B8D4A). Median historical yield among them: 0.71 (source units). Rule-based risk: low.",
+      "retrieval_metrics": null,
+      "deepeval": null,
+      "recommendation_checks": {
+        "requested_crop": "Linseed",
+        "recommended_crops": [
+          "Bajra",
+          "Cotton(lint)",
+          "Urad"
+        ],
+        "requested_crop_not_recommended": true,
+        "disclosed_no_evidence": true
+      },
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "passed": true
+    },
+    {
+      "test_case_id": "ABS-04",
+      "type": "abstention",
+      "input": "I want to grow Castor seed in Kerala. Is it a good choice?",
+      "expected": {
+        "crop": "Castor seed",
+        "state": "Kerala",
+        "records_in_dataset": 0
+      },
+      "expected_relevant_case_ids": [],
+      "n_expected_relevant": 0,
+      "reference_answer": "There are no historical records of Castor seed in Kerala; the system should not recommend it on evidence.",
+      "provenance": "verified: 0 records for crop=Castor seed, state=Kerala",
+      "failure_reasons": [],
+      "retrieved_case_ids": [
+        "TM-A8EDD8BB5A",
+        "TS-B06D694BF8",
+        "TM-726917077B",
+        "TM-7F054D15FA",
+        "TS-5320B36451",
+        "TS-F4D1CB722F",
+        "TS-6F793C4D62",
+        "TS-EF48E02BF9",
+        "TS-163CDC3C45",
+        "TM-D935A2A633"
+      ],
+      "generated_answer": "Based on similar historical cases, the best-supported crops are Sesamum, Gram, Small millets. Ranking is a heuristic over case similarity, not a guarantee of yield.\nSesamum: 16 similar historical cases support Sesamum (e.g. TM-A8EDD8BB5A, TM-726917077B). Median historical yield among them: 0.30 (source units). Rule-based risk: low.\nGram: 5 similar historical cases support Gram (e.g. TS-B06D694BF8, TM-7F054D15FA). Median historical yield among them: 0.77 (source units). Rule-based risk: insufficient_information.\nSmall millets: 20 similar historical cases support Small millets (e.g. TS-F4D1CB722F, TS-EF48E02BF9). Median historical yield among them: 0.72 (source units). Rule-based risk: low.\nGroundnut: 14 similar historical cases support Groundnut (e.g. TM-AC465CAB79, TS-86A549C565). Median historical yield among them: 0.74 (source units). Rule-based risk: low.\nother oilseeds: 4 similar historical cases support other oilseeds (e.g. TS-3229C49B96, TS-FD084FEC4B). Median historical yield among them: 0.00 (source units). Rule-based risk: insufficient_information.",
+      "retrieval_metrics": null,
+      "deepeval": null,
+      "recommendation_checks": {
+        "requested_crop": "Castor seed",
+        "recommended_crops": [
+          "Sesamum",
+          "Gram",
+          "Small millets",
+          "Groundnut",
+          "other oilseeds"
+        ],
+        "requested_crop_not_recommended": true,
+        "disclosed_no_evidence": true
+      },
+      "judge_verdict": {
+        "verdict": "not_run",
+        "llm_status": "failed: billing: Anthropic account credit balance is too low. Add credits (Console > Plans & Billing) and retry.",
+        "deterministic_passed": true,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "completed_with_warnings",
+      "passed": true
+    },
+    {
+      "test_case_id": "CLR-01",
+      "type": "clarification",
+      "input": "What should I plant?",
+      "expected": {
+        "needs_clarification": true
+      },
+      "expected_relevant_case_ids": [],
+      "n_expected_relevant": 0,
+      "reference_answer": "The system should ask for state/season/conditions.",
+      "provenance": "no agricultural context in query",
+      "failure_reasons": [],
+      "retrieved_case_ids": [],
+      "generated_answer": "",
+      "retrieval_metrics": null,
+      "deepeval": null,
+      "recommendation_checks": {
+        "status": "needs_clarification"
+      },
+      "judge_verdict": {
+        "verdict": null,
+        "llm_status": null,
+        "deterministic_passed": null,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "needs_clarification",
+      "passed": true
+    },
+    {
+      "test_case_id": "CLR-02",
+      "type": "clarification",
+      "input": "Give me a recommendation please",
+      "expected": {
+        "needs_clarification": true
+      },
+      "expected_relevant_case_ids": [],
+      "n_expected_relevant": 0,
+      "reference_answer": "The system should ask for state/season/conditions.",
+      "provenance": "no agricultural context in query",
+      "failure_reasons": [],
+      "retrieved_case_ids": [],
+      "generated_answer": "",
+      "retrieval_metrics": null,
+      "deepeval": null,
+      "recommendation_checks": {
+        "status": "needs_clarification"
+      },
+      "judge_verdict": {
+        "verdict": null,
+        "llm_status": null,
+        "deterministic_passed": null,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "needs_clarification",
+      "passed": true
+    },
+    {
+      "test_case_id": "CLR-03",
+      "type": "clarification",
+      "input": "Which one is best?",
+      "expected": {
+        "needs_clarification": true
+      },
+      "expected_relevant_case_ids": [],
+      "n_expected_relevant": 0,
+      "reference_answer": "The system should ask for state/season/conditions.",
+      "provenance": "no agricultural context in query",
+      "failure_reasons": [],
+      "retrieved_case_ids": [],
+      "generated_answer": "",
+      "retrieval_metrics": null,
+      "deepeval": null,
+      "recommendation_checks": {
+        "status": "needs_clarification"
+      },
+      "judge_verdict": {
+        "verdict": null,
+        "llm_status": null,
+        "deterministic_passed": null,
+        "violations": [],
+        "unsupported_claims": []
+      },
+      "pipeline_status": "needs_clarification",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "protocol": "validation years only: evidence <= 2014, cases from 2015-2016",
+  "selection_rule": "smallest popularity weight within 0.005 precision@5 of the best",
+  "grid": {
+    "0.0": {
+      "precision@5": 0.8852,
+      "realised_yield_percentile": 0.62,
+      "n_cases": 149
+    },
+    "0.25": {
+      "precision@5": 0.943,
+      "realised_yield_percentile": 0.6102,
+      "n_cases": 149
+    },
+    "0.5": {
+      "precision@5": 0.947,
+      "realised_yield_percentile": 0.612,
+      "n_cases": 149
+    },
+    "0.75": {
+      "precision@5": 0.9497,
+      "realised_yield_percentile": 0.6119,
+      "n_cases": 149
+    },
+    "1.0": {
+      "precision@5": 0.9483,
+      "realised_yield_percentile": 0.6125,
+      "n_cases": 149
+    }
+  },
+  "selected": 0.5
+}

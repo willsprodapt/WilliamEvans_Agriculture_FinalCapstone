@@ -1,0 +1,85 @@
+{
+  "protocol": "Recommendation experiments.\n\n1. HELD-OUT-YEAR validation (independent of the system's own outputs).\n   Evidence = Kaggle rows with year <= 2017 only (synthetic rows excluded, because their templates may come from later years).\n   Each case = one (state, season, year) in 2018-2019 with >= 4 crops actually recorded. The system gets the state, season and that year's\n   state-level weather (a forecast-like input) and recommends 5 crops. Ground truth = the crops actually recorded in that state+season+year.\n   Metrics: Precision@5, Hit@5, and the realised yield percentile (vs the crop's pre-2018 history) of recommended crops that were grown.\n   Baselines: popularity (5 most-recorded crops in the state+season before 2018) and random crops from that state's history.\n   Ablation: same system without the weather/soil conditions (state + season only).\n   LIMITATION: \"was grown\" is a plausibility check (farmers' revealed choices), not proof that the crop was the best choice.",
+  "n_cases": 153,
+  "evidence_cutoff_year": 2017,
+  "test_years": [
+    2018,
+    2019
+  ],
+  "popularity_weight": 0.5,
+  "results": {
+    "system_with_conditions": {
+      "precision@5": {
+        "mean": 0.949,
+        "ci95": [
+          0.9294,
+          0.966
+        ]
+      },
+      "hit@5": 1.0,
+      "realised_yield_percentile_of_grown_recommendations": {
+        "mean": 0.6447,
+        "ci95": [
+          0.6145,
+          0.6738
+        ]
+      },
+      "n_cases": 153
+    },
+    "system_state_season_only": {
+      "precision@5": {
+        "mean": 0.9105,
+        "ci95": [
+          0.8876,
+          0.9304
+        ]
+      },
+      "hit@5": 1.0,
+      "realised_yield_percentile_of_grown_recommendations": {
+        "mean": 0.6328,
+        "ci95": [
+          0.6026,
+          0.6619
+        ]
+      },
+      "n_cases": 153
+    },
+    "baseline_popularity": {
+      "precision@5": {
+        "mean": 0.9712,
+        "ci95": [
+          0.9569,
+          0.9843
+        ]
+      },
+      "hit@5": 1.0,
+      "realised_yield_percentile_of_grown_recommendations": {
+        "mean": 0.6417,
+        "ci95": [
+          0.6141,
+          0.6695
+        ]
+      },
+      "n_cases": 153
+    },
+    "baseline_random_in_state": {
+      "precision@5": {
+        "mean": 0.749,
+        "ci95": [
+          0.7137,
+          0.7843
+        ]
+      },
+      "hit@5": 1.0,
+      "realised_yield_percentile_of_grown_recommendations": {
+        "mean": 0.6234,
+        "ci95": [
+          0.5887,
+          0.6568
+        ]
+      },
+      "n_cases": 153
+    }
+  },
+  "note_on_yield_percentile": "0.5 = median relative to the crop's pre-2018 history; compare across systems on the SAME cases only."
+}

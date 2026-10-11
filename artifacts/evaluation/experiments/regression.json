@@ -1,0 +1,1264 @@
+{
+  "task": "yield regression (target: `yield`, source units, crop-specific; fitted on log1p)",
+  "split": {
+    "strategy": "temporal, Kaggle rows only: train <= 2014, validation 2015-2017, test > 2017",
+    "real_train": 14406,
+    "real_validation": 3104,
+    "real_test": 2179,
+    "synthetic_train_1x": 14406,
+    "synthetic_train_2x": 28812,
+    "synthetic_test": 4000,
+    "seed": 42
+  },
+  "synthetic_generator": {
+    "version": "v2 (train-only templates)",
+    "rules": [
+      "Templates are drawn ONLY from the rows passed in (the training split): no validation/test row or label can influence a synthetic row.",
+      "A synthetic row keeps its template's crop, state and season (no new crop-state pairs); its year is drawn inside the observed [min, max] year range of that crop-state-season group, so it never extrapolates beyond the training window.",
+      "Yield is the template yield scaled by the per-crop log-yield time trend estimated from the training rows (slope clipped to +-3%/year) times log-normal noise (sigma 0.12); it is clipped to [0.8 x crop minimum, 1.2 x crop maximum] of the training rows.",
+      "Area gets log-normal noise (sigma 0.20); fertilizer and pesticide per hectare share one log-normal factor (sigma 0.15, inputs scale together) plus individual noise (sigma 0.10); production = yield x area, so the record is internally consistent.",
+      "Soil (state constants) and weather (state-year aggregate) are the REAL values for the chosen state/year, so weather is never invented.",
+      "Rows whose (log area, log yield, fertilizer/ha, pesticide/ha) lie within 0.05 standard deviations of ANY real row of the same group, and rows duplicating another synthetic row, are rejected and regenerated.",
+      "Target values are never an input to another feature: yield is generated from the template yield and the year trend only."
+    ]
+  },
+  "experiments": {
+    "A_kaggle_only": {
+      "core": {
+        "n_train_rows": 14406,
+        "feature_set": "core",
+        "candidates": {
+          "hgb": {
+            "val_real": {
+              "mae": 16.14582885723587,
+              "rmse": 244.01068638678498,
+              "r2": 0.9213479784675654,
+              "mae_log1p": 0.15210946520867683,
+              "rmse_log1p": 0.26477474358907976,
+              "r2_log1p": 0.943811832270834
+            },
+            "fit_s": 1.4
+          },
+          "rf": {
+            "val_real": {
+              "mae": 9.518146347585139,
+              "rmse": 127.25328818478349,
+              "r2": 0.9786090426078169,
+              "mae_log1p": 0.15575851183956504,
+              "rmse_log1p": 0.28013635714469315,
+              "r2_log1p": 0.9371028870044944
+            },
+            "fit_s": 1.0
+          }
+        },
+        "selected": {
+          "model": "hgb",
+          "selection_metric": "validation (real, 2015-2017) RMSE on log1p(yield)",
+          "refit_on_rows": 17510
+        },
+        "test_real": {
+          "mae": 13.741089933834973,
+          "rmse": 205.50832414689052,
+          "r2": 0.9413964028128798,
+          "mae_log1p": 0.13931224522597074,
+          "rmse_log1p": 0.23412367905534184,
+          "r2_log1p": 0.9554844391651899,
+          "n": 2179
+        },
+        "test_synthetic": {
+          "mae": 26.092837641624858,
+          "rmse": 398.8612151296246,
+          "r2": 0.810324841257587,
+          "mae_log1p": 0.13824815179177022,
+          "rmse_log1p": 0.23317277219305918,
+          "r2_log1p": 0.9558815870336917,
+          "n": 4000,
+          "note": "optimistic by construction: siblings of the training rows"
+        },
+        "residuals_real_test": {
+          "mean_log_residual(bias)": -0.01495418975651138,
+          "median_abs_log_residual": 0.08427280663519676,
+          "p05": -0.34411034972701143,
+          "p95": 0.2968266161009996,
+          "corr_actual_pred_log": 0.9776769299026615,
+          "share_within_20pct": 0.5952271684258834
+        }
+      },
+      "full": {
+        "n_train_rows": 14406,
+        "feature_set": "full",
+        "candidates": {
+          "hgb": {
+            "val_real": {
+              "mae": 12.254796767291708,
+              "rmse": 183.7327656186194,
+              "r2": 0.9554071303758017,
+              "mae_log1p": 0.1539698961966054,
+              "rmse_log1p": 0.26424847376522836,
+              "r2_log1p": 0.9440349710017626
+            },
+            "fit_s": 1.2
+          },
+          "rf": {
+            "val_real": {
+              "mae": 8.462024261771075,
+              "rmse": 111.01700664917684,
+              "r2": 0.9837193693860109,
+              "mae_log1p": 0.17112845227657517,
+              "rmse_log1p": 0.295085165621292,
+              "r2_log1p": 0.9302110743506914
+            },
+            "fit_s": 1.3
+          }
+        },
+        "selected": {
+          "model": "hgb",
+          "selection_metric": "validation (real, 2015-2017) RMSE on log1p(yield)",
+          "refit_on_rows": 17510
+        },
+        "test_real": {
+          "mae": 11.050865660896227,
+          "rmse": 161.20797007271054,
+          "r2": 0.9639389425423014,
+          "mae_log1p": 0.14032219180693897,
+          "rmse_log1p": 0.23318662906995052,
+          "r2_log1p": 0.9558400617123932,
+          "n": 2179
+        },
+        "test_synthetic": {
+          "mae": 27.928706182922163,
+          "rmse": 413.39438742596536,
+          "r2": 0.7962507624634783,
+          "mae_log1p": 0.13358998091733562,
+          "rmse_log1p": 0.21747156254126487,
+          "r2_log1p": 0.9616231646182606,
+          "n": 4000,
+          "note": "optimistic by construction: siblings of the training rows"
+        },
+        "residuals_real_test": {
+          "mean_log_residual(bias)": -0.01998249503500008,
+          "median_abs_log_residual": 0.0852237199200091,
+          "p05": -0.3507019365610206,
+          "p95": 0.26174815667364976,
+          "corr_actual_pred_log": 0.9779123771613033,
+          "share_within_20pct": 0.591096833409821
+        }
+      }
+    },
+    "B1_kaggle_plus_1x_synthetic": {
+      "core": {
+        "n_train_rows": 28812,
+        "feature_set": "core",
+        "candidates": {
+          "hgb": {
+            "val_real": {
+              "mae": 14.871452103685899,
+              "rmse": 172.77239689158802,
+              "r2": 0.9605687165731323,
+              "mae_log1p": 0.15902766346228064,
+              "rmse_log1p": 0.27271242638679233,
+              "r2_log1p": 0.9403924031994042
+            },
+            "fit_s": 1.2
+          },
+          "rf": {
+            "val_real": {
+              "mae": 12.448479290157621,
+              "rmse": 147.0598826553733,
+              "r2": 0.9714319480795468,
+              "mae_log1p": 0.16028133695773086,
+              "rmse_log1p": 0.2866440060131812,
+              "r2_log1p": 0.9341467084313567
+            },
+            "fit_s": 1.9
+          }
+        },
+        "selected": {
+          "model": "hgb",
+          "selection_metric": "validation (real, 2015-2017) RMSE on log1p(yield)",
+          "refit_on_rows": 31916
+        },
+        "test_real": {
+          "mae": 20.80152100829236,
+          "rmse": 375.76211722339616,
+          "r2": 0.8040742907885783,
+          "mae_log1p": 0.143902191448458,
+          "rmse_log1p": 0.23701204023375141,
+          "r2_log1p": 0.954379295598449,
+          "n": 2179
+        },
+        "test_synthetic": {
+          "mae": 24.38352816362149,
+          "rmse": 369.75388077411685,
+          "r2": 0.8369982294039777,
+          "mae_log1p": 0.13255548661126432,
+          "rmse_log1p": 0.22006689617855094,
+          "r2_log1p": 0.96070171066511,
+          "n": 4000,
+          "note": "optimistic by construction: siblings of the training rows"
+        },
+        "residuals_real_test": {
+          "mean_log_residual(bias)": -0.008700182463093648,
+          "median_abs_log_residual": 0.0889176453122591,
+          "p05": -0.33253245046930535,
+          "p95": 0.30130107611072426,
+          "corr_actual_pred_log": 0.9769730332560702,
+          "share_within_20pct": 0.5759522716842589
+        }
+      },
+      "full": {
+        "n_train_rows": 28812,
+        "feature_set": "full",
+        "candidates": {
+          "hgb": {
+            "val_real": {
+              "mae": 21.362405474965804,
+              "rmse": 384.58478162469777,
+              "r2": 0.8046216732535791,
+              "mae_log1p": 0.1577155489374116,
+              "rmse_log1p": 0.26803231544632156,
+              "r2_log1p": 0.9424207406573986
+            },
+            "fit_s": 1.7
+          },
+          "rf": {
+            "val_real": {
+              "mae": 9.483860323203883,
+              "rmse": 121.391046000774,
+              "r2": 0.9805345026927152,
+              "mae_log1p": 0.1523807556504396,
+              "rmse_log1p": 0.2794059776767125,
+              "r2_log1p": 0.9374304337319159
+            },
+            "fit_s": 3.4
+          }
+        },
+        "selected": {
+          "model": "hgb",
+          "selection_metric": "validation (real, 2015-2017) RMSE on log1p(yield)",
+          "refit_on_rows": 31916
+        },
+        "test_real": {
+          "mae": 20.621404992619304,
+          "rmse": 342.71579582912125,
+          "r2": 0.8370202368667685,
+          "mae_log1p": 0.14447593202186146,
+          "rmse_log1p": 0.23733386231587308,
+          "r2_log1p": 0.954255321156265,
+          "n": 2179
+        },
+        "test_synthetic": {
+          "mae": 21.16535811872538,
+          "rmse": 316.6956376252444,
+          "r2": 0.8804220778765304,
+          "mae_log1p": 0.1279707200980625,
+          "rmse_log1p": 0.20631816293196542,
+          "r2_log1p": 0.9654586638076478,
+          "n": 4000,
+          "note": "optimistic by construction: siblings of the training rows"
+        },
+        "residuals_real_test": {
+          "mean_log_residual(bias)": -0.01593798848765902,
+          "median_abs_log_residual": 0.09272053735861352,
+          "p05": -0.3481358518785814,
+          "p95": 0.29612921450410146,
+          "corr_actual_pred_log": 0.976998854838718,
+          "share_within_20pct": 0.5741165672326756
+        }
+      }
+    },
+    "B2_kaggle_plus_2x_synthetic": {
+      "core": {
+        "n_train_rows": 43218,
+        "feature_set": "core",
+        "candidates": {
+          "hgb": {
+            "val_real": {
+              "mae": 14.525480257831237,
+              "rmse": 183.54130417152595,
+              "r2": 0.9555000192717061,
+              "mae_log1p": 0.15686491438874364,
+              "rmse_log1p": 0.271785027989975,
+              "r2_log1p": 0.9407971225340291
+            },
+            "fit_s": 2.1
+          },
+          "rf": {
+            "val_real": {
+              "mae": 14.449394060576594,
+              "rmse": 179.108107963424,
+              "r2": 0.9576237337468035,
+              "mae_log1p": 0.16395770877987692,
+              "rmse_log1p": 0.29112221636367247,
+              "r2_log1p": 0.9320729966470525
+            },
+            "fit_s": 2.7
+          }
+        },
+        "selected": {
+          "model": "hgb",
+          "selection_metric": "validation (real, 2015-2017) RMSE on log1p(yield)",
+          "refit_on_rows": 46322
+        },
+        "test_real": {
+          "mae": 21.34481514070048,
+          "rmse": 319.88350754377757,
+          "r2": 0.8580128186281211,
+          "mae_log1p": 0.15030195269678984,
+          "rmse_log1p": 0.24494986157167767,
+          "r2_log1p": 0.9512723389163587,
+          "n": 2179
+        },
+        "test_synthetic": {
+          "mae": 23.673294849219417,
+          "rmse": 375.11217956188045,
+          "r2": 0.8322397088084268,
+          "mae_log1p": 0.12967918558283428,
+          "rmse_log1p": 0.21491282821937918,
+          "r2_log1p": 0.9625209228819512,
+          "n": 4000,
+          "note": "optimistic by construction: siblings of the training rows"
+        },
+        "residuals_real_test": {
+          "mean_log_residual(bias)": -0.01223790350870908,
+          "median_abs_log_residual": 0.09369036370362593,
+          "p05": -0.34309005559409195,
+          "p95": 0.3209879328427728,
+          "corr_actual_pred_log": 0.9754166778219332,
+          "share_within_20pct": 0.5557595227168426
+        }
+      },
+      "full": {
+        "n_train_rows": 43218,
+        "feature_set": "full",
+        "candidates": {
+          "hgb": {
+            "val_real": {
+              "mae": 12.34581571338596,
+              "rmse": 208.27060530036928,
+              "r2": 0.9427008532659168,
+              "mae_log1p": 0.15552717731499552,
+              "rmse_log1p": 0.26969740246275337,
+              "r2_log1p": 0.9417031236366209
+            },
+            "fit_s": 2.9
+          },
+          "rf": {
+            "val_real": {
+              "mae": 10.070478675835359,
+              "rmse": 134.81443936934906,
+              "r2": 0.9759915005953994,
+              "mae_log1p": 0.14961424789743175,
+              "rmse_log1p": 0.2804919487714181,
+              "r2_log1p": 0.9369431085172011
+            },
+            "fit_s": 5.6
+          }
+        },
+        "selected": {
+          "model": "hgb",
+          "selection_metric": "validation (real, 2015-2017) RMSE on log1p(yield)",
+          "refit_on_rows": 46322
+        },
+        "test_real": {
+          "mae": 23.190403007788092,
+          "rmse": 381.18051685043173,
+          "r2": 0.7983831485645421,
+          "mae_log1p": 0.1471895072485816,
+          "rmse_log1p": 0.24447777756457964,
+          "r2_log1p": 0.951459980439012,
+          "n": 2179
+        },
+        "test_synthetic": {
+          "mae": 19.997198211531458,
+          "rmse": 291.47078309806295,
+          "r2": 0.8987122565433656,
+          "mae_log1p": 0.12434421142719218,
+          "rmse_log1p": 0.20352309029158677,
+          "r2_log1p": 0.9663882142875305,
+          "n": 4000,
+          "note": "optimistic by construction: siblings of the training rows"
+        },
+        "residuals_real_test": {
+          "mean_log_residual(bias)": -0.019833657774656017,
+          "median_abs_log_residual": 0.09280729599354676,
+          "p05": -0.35776291514159014,
+          "p95": 0.2947122783834706,
+          "corr_actual_pred_log": 0.9755976400560443,
+          "share_within_20pct": 0.5777879761358421
+        }
+      }
+    }
+  },
+  "baseline_crop_median": {
+    "test_real": {
+      "mae": 24.283095063051704,
+      "rmse": 343.55778365347936,
+      "r2": 0.8362184322916846,
+      "mae_log1p": 0.30576798138806327,
+      "rmse_log1p": 0.5074287820548309,
+      "r2_log1p": 0.7908916554513652
+    },
+    "test_synthetic": {
+      "mae": 38.67658384326165,
+      "rmse": 475.1497684852548,
+      "r2": 0.7308292378553902,
+      "mae_log1p": 0.28438155403869575,
+      "rmse_log1p": 0.532940201627152,
+      "r2_log1p": 0.7695264065537933
+    }
+  },
+  "baseline_persistence_last_observed_yield": {
+    "test_real": {
+      "mae": 10.209949458397121,
+      "rmse": 155.48555854518958,
+      "r2": 0.9664536282588063,
+      "mae_log1p": 0.10217820793888845,
+      "rmse_log1p": 0.20855421319044853,
+      "r2_log1p": 0.9646768760876203
+    },
+    "share_test_rows_with_history": 0.9862322166131253
+  },
+  "residual_analysis_A_full": {
+    "by_year": [
+      {
+        "year": 2018,
+        "mean": 0.1344,
+        "count": 1063
+      },
+      {
+        "year": 2019,
+        "mean": 0.1473,
+        "count": 1079
+      },
+      {
+        "year": 2020,
+        "mean": 0.1051,
+        "count": 37
+      }
+    ],
+    "worst_crops_by_mean_abs_log_error(n>=15)": [
+      {
+        "crop": "Onion",
+        "mean": 0.3118,
+        "count": 55
+      },
+      {
+        "crop": "Mesta",
+        "mean": 0.2955,
+        "count": 21
+      },
+      {
+        "crop": "Garlic",
+        "mean": 0.2639,
+        "count": 28
+      },
+      {
+        "crop": "Sweet potato",
+        "mean": 0.2605,
+        "count": 33
+      },
+      {
+        "crop": "Dry chillies",
+        "mean": 0.2453,
+        "count": 39
+      },
+      {
+        "crop": "Jute",
+        "mean": 0.2281,
+        "count": 18
+      },
+      {
+        "crop": "Ginger",
+        "mean": 0.2187,
+        "count": 35
+      },
+      {
+        "crop": "Other Cereals",
+        "mean": 0.2185,
+        "count": 28
+      }
+    ],
+    "actual_vs_predicted_sample(150)": [
+      {
+        "actual": 4.1533,
+        "predicted": 2.9324,
+        "crop": "Arecanut"
+      },
+      {
+        "actual": 2.0112,
+        "predicted": 1.4544,
+        "crop": "Arecanut"
+      },
+      {
+        "actual": 1.2503,
+        "predicted": 1.14,
+        "crop": "Arhar/Tur"
+      },
+      {
+        "actual": 0.5687,
+        "predicted": 0.5771,
+        "crop": "Arhar/Tur"
+      },
+      {
+        "actual": 1.1886,
+        "predicted": 0.7361,
+        "crop": "Arhar/Tur"
+      },
+      {
+        "actual": 1.6219,
+        "predicted": 1.0079,
+        "crop": "Arhar/Tur"
+      },
+      {
+        "actual": 1.4812,
+        "predicted": 1.6107,
+        "crop": "Bajra"
+      },
+      {
+        "actual": 0.9675,
+        "predicted": 0.8956,
+        "crop": "Bajra"
+      },
+      {
+        "actual": 2.57,
+        "predicted": 2.8323,
+        "crop": "Bajra"
+      },
+      {
+        "actual": 1.9009,
+        "predicted": 1.4974,
+        "crop": "Bajra"
+      },
+      {
+        "actual": 47.165,
+        "predicted": 41.714,
+        "crop": "Banana"
+      },
+      {
+        "actual": 0.8643,
+        "predicted": 0.8884,
+        "crop": "Barley"
+      },
+      {
+        "actual": 1.0336,
+        "predicted": 1.1313,
+        "crop": "Barley"
+      },
+      {
+        "actual": 2.1311,
+        "predicted": 1.5198,
+        "crop": "Black pepper"
+      },
+      {
+        "actual": 0.1194,
+        "predicted": 0.2554,
+        "crop": "Cardamom"
+      },
+      {
+        "actual": 1.398,
+        "predicted": 1.4744,
+        "crop": "Cashewnut"
+      },
+      {
+        "actual": 0.992,
+        "predicted": 1.108,
+        "crop": "Castor seed"
+      },
+      {
+        "actual": 1.004,
+        "predicted": 1.0321,
+        "crop": "Castor seed"
+      },
+      {
+        "actual": 16935.0585,
+        "predicted": 16217.5227,
+        "crop": "Coconut"
+      },
+      {
+        "actual": 12018.4073,
+        "predicted": 12708.5606,
+        "crop": "Coconut"
+      },
+      {
+        "actual": 1.6896,
+        "predicted": 1.5312,
+        "crop": "Coriander"
+      },
+      {
+        "actual": 2.2517,
+        "predicted": 1.6933,
+        "crop": "Cotton(lint)"
+      },
+      {
+        "actual": 0.8457,
+        "predicted": 1.2445,
+        "crop": "Cotton(lint)"
+      },
+      {
+        "actual": 0.615,
+        "predicted": 0.6261,
+        "crop": "Cotton(lint)"
+      },
+      {
+        "actual": 0.3933,
+        "predicted": 0.5874,
+        "crop": "Cotton(lint)"
+      },
+      {
+        "actual": 1.0522,
+        "predicted": 1.17,
+        "crop": "Cowpea(Lobia)"
+      },
+      {
+        "actual": 0.6812,
+        "predicted": 0.678,
+        "crop": "Cowpea(Lobia)"
+      },
+      {
+        "actual": 0.9189,
+        "predicted": 0.7552,
+        "crop": "Dry chillies"
+      },
+      {
+        "actual": 1.2245,
+        "predicted": 1.6565,
+        "crop": "Dry chillies"
+      },
+      {
+        "actual": 5.0565,
+        "predicted": 3.0673,
+        "crop": "Dry chillies"
+      },
+      {
+        "actual": 0.8125,
+        "predicted": 0.9697,
+        "crop": "Garlic"
+      },
+      {
+        "actual": 6.0003,
+        "predicted": 5.1539,
+        "crop": "Garlic"
+      },
+      {
+        "actual": 7.245,
+        "predicted": 6.4419,
+        "crop": "Ginger"
+      },
+      {
+        "actual": 9.6682,
+        "predicted": 10.0276,
+        "crop": "Ginger"
+      },
+      {
+        "actual": 0.644,
+        "predicted": 0.664,
+        "crop": "Gram"
+      },
+      {
+        "actual": 0.3,
+        "predicted": 0.4375,
+        "crop": "Gram"
+      },
+      {
+        "actual": 0.8345,
+        "predicted": 0.8777,
+        "crop": "Gram"
+      },
+      {
+        "actual": 0.74,
+        "predicted": 0.7424,
+        "crop": "Gram"
+      },
+      {
+        "actual": 2.37,
+        "predicted": 2.0903,
+        "crop": "Groundnut"
+      },
+      {
+        "actual": 0.7993,
+        "predicted": 1.001,
+        "crop": "Groundnut"
+      },
+      {
+        "actual": 1.7656,
+        "predicted": 1.4487,
+        "crop": "Groundnut"
+      },
+      {
+        "actual": 3.0,
+        "predicted": 2.8526,
+        "crop": "Groundnut"
+      },
+      {
+        "actual": 1.345,
+        "predicted": 1.1607,
+        "crop": "Groundnut"
+      },
+      {
+        "actual": 0.0,
+        "predicted": 1.3741,
+        "crop": "Guar seed"
+      },
+      {
+        "actual": 0.9187,
+        "predicted": 0.8936,
+        "crop": "Horse-gram"
+      },
+      {
+        "actual": 0.6452,
+        "predicted": 0.6934,
+        "crop": "Horse-gram"
+      },
+      {
+        "actual": 0.725,
+        "predicted": 0.5338,
+        "crop": "Horse-gram"
+      },
+      {
+        "actual": 2.358,
+        "predicted": 2.1791,
+        "crop": "Jowar"
+      },
+      {
+        "actual": 0.8165,
+        "predicted": 0.875,
+        "crop": "Jowar"
+      },
+      {
+        "actual": 0.9322,
+        "predicted": 0.9758,
+        "crop": "Jowar"
+      },
+      {
+        "actual": 0.7788,
+        "predicted": 0.9117,
+        "crop": "Jowar"
+      },
+      {
+        "actual": 0.3676,
+        "predicted": 0.235,
+        "crop": "Jute"
+      },
+      {
+        "actual": 0.6383,
+        "predicted": 0.6101,
+        "crop": "Khesari"
+      },
+      {
+        "actual": 0.295,
+        "predicted": 0.3024,
+        "crop": "Linseed"
+      },
+      {
+        "actual": 0.8109,
+        "predicted": 0.6999,
+        "crop": "Linseed"
+      },
+      {
+        "actual": 2.8685,
+        "predicted": 1.924,
+        "crop": "Maize"
+      },
+      {
+        "actual": 1.765,
+        "predicted": 2.7556,
+        "crop": "Maize"
+      },
+      {
+        "actual": 2.8824,
+        "predicted": 2.9521,
+        "crop": "Maize"
+      },
+      {
+        "actual": 1.3632,
+        "predicted": 2.249,
+        "crop": "Maize"
+      },
+      {
+        "actual": 1.9833,
+        "predicted": 2.0263,
+        "crop": "Maize"
+      },
+      {
+        "actual": 6.8417,
+        "predicted": 5.8814,
+        "crop": "Maize"
+      },
+      {
+        "actual": 2.468,
+        "predicted": 2.1184,
+        "crop": "Maize"
+      },
+      {
+        "actual": 0.9238,
+        "predicted": 0.8755,
+        "crop": "Masoor"
+      },
+      {
+        "actual": 0.9,
+        "predicted": 0.6007,
+        "crop": "Masoor"
+      },
+      {
+        "actual": 0.7375,
+        "predicted": 0.7721,
+        "crop": "Masoor"
+      },
+      {
+        "actual": 1.9081,
+        "predicted": 1.6986,
+        "crop": "Mesta"
+      },
+      {
+        "actual": 11.7194,
+        "predicted": 9.8116,
+        "crop": "Mesta"
+      },
+      {
+        "actual": 0.4232,
+        "predicted": 0.3171,
+        "crop": "Moong(Green Gram)"
+      },
+      {
+        "actual": 0.7342,
+        "predicted": 0.7295,
+        "crop": "Moong(Green Gram)"
+      },
+      {
+        "actual": 1.0533,
+        "predicted": 0.9649,
+        "crop": "Moong(Green Gram)"
+      },
+      {
+        "actual": 0.8532,
+        "predicted": 0.989,
+        "crop": "Moong(Green Gram)"
+      },
+      {
+        "actual": 0.6887,
+        "predicted": 0.7288,
+        "crop": "Moong(Green Gram)"
+      },
+      {
+        "actual": 0.7567,
+        "predicted": 0.7719,
+        "crop": "Moong(Green Gram)"
+      },
+      {
+        "actual": 0.285,
+        "predicted": 0.489,
+        "crop": "Niger seed"
+      },
+      {
+        "actual": 1.0891,
+        "predicted": 0.9996,
+        "crop": "Niger seed"
+      },
+      {
+        "actual": 7.4552,
+        "predicted": 4.1745,
+        "crop": "Onion"
+      },
+      {
+        "actual": 0.5,
+        "predicted": 0.8659,
+        "crop": "Onion"
+      },
+      {
+        "actual": 8.431,
+        "predicted": 7.6007,
+        "crop": "Onion"
+      },
+      {
+        "actual": 21.9548,
+        "predicted": 16.9706,
+        "crop": "Onion"
+      },
+      {
+        "actual": 0.22,
+        "predicted": 0.6335,
+        "crop": "Other Cereals"
+      },
+      {
+        "actual": 2.21,
+        "predicted": 0.3956,
+        "crop": "Other Cereals"
+      },
+      {
+        "actual": 0.8475,
+        "predicted": 0.8329,
+        "crop": "Other Kharif pulses"
+      },
+      {
+        "actual": 0.7883,
+        "predicted": 0.6647,
+        "crop": "Other Kharif pulses"
+      },
+      {
+        "actual": 0.9675,
+        "predicted": 1.1321,
+        "crop": "Other Kharif pulses"
+      },
+      {
+        "actual": 0.6641,
+        "predicted": 0.7419,
+        "crop": "Other Rabi pulses"
+      },
+      {
+        "actual": 0.6961,
+        "predicted": 0.9334,
+        "crop": "Other Rabi pulses"
+      },
+      {
+        "actual": 0.4659,
+        "predicted": 0.5638,
+        "crop": "Other Rabi pulses"
+      },
+      {
+        "actual": 1.0,
+        "predicted": 1.4457,
+        "crop": "Other Summer Pulses"
+      },
+      {
+        "actual": 1.0756,
+        "predicted": 1.8543,
+        "crop": "Peas & beans (Pulses)"
+      },
+      {
+        "actual": 1.8009,
+        "predicted": 1.8093,
+        "crop": "Peas & beans (Pulses)"
+      },
+      {
+        "actual": 0.6408,
+        "predicted": 0.831,
+        "crop": "Peas & beans (Pulses)"
+      },
+      {
+        "actual": 13.6753,
+        "predicted": 12.4445,
+        "crop": "Potato"
+      },
+      {
+        "actual": 13.1869,
+        "predicted": 8.2163,
+        "crop": "Potato"
+      },
+      {
+        "actual": 8.2833,
+        "predicted": 7.9666,
+        "crop": "Potato"
+      },
+      {
+        "actual": 23.2225,
+        "predicted": 19.2238,
+        "crop": "Potato"
+      },
+      {
+        "actual": 11.83,
+        "predicted": 11.5166,
+        "crop": "Potato"
+      },
+      {
+        "actual": 0.83,
+        "predicted": 1.0109,
+        "crop": "Ragi"
+      },
+      {
+        "actual": 1.355,
+        "predicted": 1.008,
+        "crop": "Ragi"
+      },
+      {
+        "actual": 2.5,
+        "predicted": 2.5244,
+        "crop": "Ragi"
+      },
+      {
+        "actual": 1.5891,
+        "predicted": 1.4269,
+        "crop": "Ragi"
+      },
+      {
+        "actual": 1.7316,
+        "predicted": 1.624,
+        "crop": "Rapeseed &Mustard"
+      },
+      {
+        "actual": 1.3,
+        "predicted": 1.1303,
+        "crop": "Rapeseed &Mustard"
+      },
+      {
+        "actual": 1.4768,
+        "predicted": 1.3754,
+        "crop": "Rapeseed &Mustard"
+      },
+      {
+        "actual": 1.0173,
+        "predicted": 1.0291,
+        "crop": "Rapeseed &Mustard"
+      },
+      {
+        "actual": 2.205,
+        "predicted": 2.1992,
+        "crop": "Rice"
+      },
+      {
+        "actual": 2.6762,
+        "predicted": 3.0713,
+        "crop": "Rice"
+      },
+      {
+        "actual": 2.924,
+        "predicted": 2.7375,
+        "crop": "Rice"
+      },
+      {
+        "actual": 1.2563,
+        "predicted": 1.7555,
+        "crop": "Rice"
+      },
+      {
+        "actual": 2.135,
+        "predicted": 2.1335,
+        "crop": "Rice"
+      },
+      {
+        "actual": 3.2167,
+        "predicted": 3.2577,
+        "crop": "Rice"
+      },
+      {
+        "actual": 3.2081,
+        "predicted": 3.3509,
+        "crop": "Rice"
+      },
+      {
+        "actual": 2.9687,
+        "predicted": 2.5608,
+        "crop": "Rice"
+      },
+      {
+        "actual": 0.1525,
+        "predicted": 0.6397,
+        "crop": "Safflower"
+      },
+      {
+        "actual": 0.6233,
+        "predicted": 0.5342,
+        "crop": "Safflower"
+      },
+      {
+        "actual": 4.954,
+        "predicted": 0.9096,
+        "crop": "Sannhamp"
+      },
+      {
+        "actual": 0.8943,
+        "predicted": 0.7781,
+        "crop": "Sesamum"
+      },
+      {
+        "actual": 0.4168,
+        "predicted": 0.6315,
+        "crop": "Sesamum"
+      },
+      {
+        "actual": 1.04,
+        "predicted": 0.972,
+        "crop": "Sesamum"
+      },
+      {
+        "actual": 1.0,
+        "predicted": 1.0093,
+        "crop": "Sesamum"
+      },
+      {
+        "actual": 0.6562,
+        "predicted": 0.6419,
+        "crop": "Sesamum"
+      },
+      {
+        "actual": 0.7583,
+        "predicted": 0.9583,
+        "crop": "Small millets"
+      },
+      {
+        "actual": 0.455,
+        "predicted": 0.6307,
+        "crop": "Small millets"
+      },
+      {
+        "actual": 1.169,
+        "predicted": 1.063,
+        "crop": "Small millets"
+      },
+      {
+        "actual": 0.8175,
+        "predicted": 0.8007,
+        "crop": "Small millets"
+      },
+      {
+        "actual": 1.13,
+        "predicted": 1.4899,
+        "crop": "Soyabean"
+      },
+      {
+        "actual": 1.0656,
+        "predicted": 1.1171,
+        "crop": "Soyabean"
+      },
+      {
+        "actual": 1.5447,
+        "predicted": 1.0746,
+        "crop": "Soyabean"
+      },
+      {
+        "actual": 83.4454,
+        "predicted": 88.5437,
+        "crop": "Sugarcane"
+      },
+      {
+        "actual": 78.9444,
+        "predicted": 48.5344,
+        "crop": "Sugarcane"
+      },
+      {
+        "actual": 2.675,
+        "predicted": 3.2234,
+        "crop": "Sugarcane"
+      },
+      {
+        "actual": 84.7274,
+        "predicted": 76.6085,
+        "crop": "Sugarcane"
+      },
+      {
+        "actual": 0.8518,
+        "predicted": 0.8538,
+        "crop": "Sunflower"
+      },
+      {
+        "actual": 1.0864,
+        "predicted": 0.9093,
+        "crop": "Sunflower"
+      },
+      {
+        "actual": 0.8275,
+        "predicted": 0.5025,
+        "crop": "Sunflower"
+      },
+      {
+        "actual": 0.6,
+        "predicted": 0.7175,
+        "crop": "Sunflower"
+      },
+      {
+        "actual": 6.2387,
+        "predicted": 4.8684,
+        "crop": "Sweet potato"
+      },
+      {
+        "actual": 8.9709,
+        "predicted": 8.2203,
+        "crop": "Sweet potato"
+      },
+      {
+        "actual": 13.6117,
+        "predicted": 16.019,
+        "crop": "Tapioca"
+      },
+      {
+        "actual": 32.25,
+        "predicted": 24.4684,
+        "crop": "Tapioca"
+      },
+      {
+        "actual": 0.36,
+        "predicted": 0.474,
+        "crop": "Tobacco"
+      },
+      {
+        "actual": 1.0675,
+        "predicted": 0.7349,
+        "crop": "Tobacco"
+      },
+      {
+        "actual": 2.0,
+        "predicted": 2.1024,
+        "crop": "Tobacco"
+      },
+      {
+        "actual": 0.6889,
+        "predicted": 0.9005,
+        "crop": "Turmeric"
+      },
+      {
+        "actual": 2.5,
+        "predicted": 3.3538,
+        "crop": "Turmeric"
+      },
+      {
+        "actual": 0.9446,
+        "predicted": 0.8846,
+        "crop": "Urad"
+      },
+      {
+        "actual": 1.4587,
+        "predicted": 0.8586,
+        "crop": "Urad"
+      },
+      {
+        "actual": 0.5143,
+        "predicted": 0.4395,
+        "crop": "Urad"
+      },
+      {
+        "actual": 0.4691,
+        "predicted": 0.3976,
+        "crop": "Urad"
+      },
+      {
+        "actual": 0.9433,
+        "predicted": 0.8947,
+        "crop": "Urad"
+      },
+      {
+        "actual": 0.8227,
+        "predicted": 0.68,
+        "crop": "Urad"
+      }
+    ]
+  },
+  "spatial_holdout_supplementary": {
+    "held_out_states": [
+      "Meghalaya",
+      "Odisha",
+      "Uttarakhand",
+      "Telangana",
+      "Karnataka",
+      "Assam"
+    ],
+    "n_train": 14956,
+    "n_test": 4733,
+    "hgb_core": {
+      "mae": 64.79854071792764,
+      "rmse": 695.1957694123914,
+      "r2": 0.21503900010217836,
+      "mae_log1p": 0.2998475374268329,
+      "rmse_log1p": 0.4953130362049034,
+      "r2_log1p": 0.8065716685050923
+    },
+    "baseline_crop_median": {
+      "mae": 32.562071023686656,
+      "rmse": 375.2086757419573,
+      "r2": 0.7713455898799297,
+      "mae_log1p": 0.28503989383916273,
+      "rmse_log1p": 0.4406506964132827,
+      "r2_log1p": 0.8469090597101396
+    },
+    "note": "state is an unseen category here; soil N/P/K/pH (state constants) are the only state descriptors the model can use"
+  }
+}

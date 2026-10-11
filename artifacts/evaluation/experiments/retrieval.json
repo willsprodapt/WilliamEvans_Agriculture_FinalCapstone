@@ -1,0 +1,892 @@
+{
+  "k": 10,
+  "label_note": "labels come from the same metadata the query is built from, so these queries test whether the retriever honours structured\nconstraints written in prose. They do NOT measure agronomic usefulness of the retrieved cases.",
+  "corpora": {
+    "kaggle": {
+      "n_documents": 19689,
+      "n_queries": 147,
+      "query_types": {
+        "full_constraint": 40,
+        "numeric": 28,
+        "partial": 40,
+        "typo": 39
+      },
+      "results": {
+        "keyword_only": {
+          "full_constraint": {
+            "p@k": 0.8550000000000001,
+            "r_precision": 1.0,
+            "recall@k": 0.7142856325746016,
+            "mrr": 1.0,
+            "ndcg@k": 1.0,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              1.0,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "numeric": {
+            "p@k": 0.028571428571428574,
+            "r_precision": 0.028571428571428574,
+            "recall@k": 0.00028306071325259757,
+            "mrr": 0.0691468253968254,
+            "ndcg@k": 0.027617091894882657,
+            "hit@k": 0.17857142857142858,
+            "ndcg@k_ci95": [
+              0.0055,
+              0.0547
+            ],
+            "n_queries": 28
+          },
+          "partial": {
+            "p@k": 0.9675,
+            "r_precision": 1.0,
+            "recall@k": 0.4793394173924822,
+            "mrr": 1.0,
+            "ndcg@k": 1.0,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              1.0,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "typo": {
+            "p@k": 0.20769230769230773,
+            "r_precision": 0.19743589743589743,
+            "recall@k": 0.17430316314755673,
+            "mrr": 0.21961741961741957,
+            "ndcg@k": 0.22079289973971114,
+            "hit@k": 0.3076923076923077,
+            "ndcg@k_ci95": [
+              0.1127,
+              0.3462
+            ],
+            "n_queries": 39
+          },
+          "ALL": {
+            "p@k": 0.5564625850340136,
+            "r_precision": 0.6020408163265305,
+            "recall@k": 0.37109354463543615,
+            "mrr": 0.6156543569808877,
+            "ndcg@k": 0.6080557936252071,
+            "hit@k": 0.6598639455782312,
+            "ndcg@k_ci95": [
+              0.5342,
+              0.6829
+            ],
+            "n_queries": 147
+          }
+        },
+        "semantic_only": {
+          "full_constraint": {
+            "p@k": 0.8475000000000001,
+            "r_precision": 0.9925,
+            "recall@k": 0.7092856325746016,
+            "mrr": 1.0,
+            "ndcg@k": 0.9949190266561825,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              0.9848,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "numeric": {
+            "p@k": 0.2285714285714285,
+            "r_precision": 0.2285714285714285,
+            "recall@k": 0.011807262415317012,
+            "mrr": 0.4613520408163265,
+            "ndcg@k": 0.24449087983199513,
+            "hit@k": 0.75,
+            "ndcg@k_ci95": [
+              0.162,
+              0.3421
+            ],
+            "n_queries": 28
+          },
+          "partial": {
+            "p@k": 0.95,
+            "r_precision": 0.9824999999999999,
+            "recall@k": 0.46683941739248225,
+            "mrr": 0.9791666666666666,
+            "ndcg@k": 0.9803845744819247,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              0.9412,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "typo": {
+            "p@k": 0.2564102564102564,
+            "r_precision": 0.3128205128205129,
+            "recall@k": 0.23205971924507396,
+            "mrr": 0.31135531135531136,
+            "ndcg@k": 0.3079396217109726,
+            "hit@k": 0.38461538461538464,
+            "ndcg@k_ci95": [
+              0.1711,
+              0.4556
+            ],
+            "n_queries": 39
+          },
+          "ALL": {
+            "p@k": 0.6006802721088433,
+            "r_precision": 0.6639455782312923,
+            "recall@k": 0.38384989385625906,
+            "mrr": 0.7090298023971493,
+            "ndcg@k": 0.6657655369220957,
+            "hit@k": 0.7891156462585034,
+            "ndcg@k_ci95": [
+              0.5969,
+              0.7351
+            ],
+            "n_queries": 147
+          }
+        },
+        "hybrid_rrf": {
+          "full_constraint": {
+            "p@k": 0.8550000000000001,
+            "r_precision": 1.0,
+            "recall@k": 0.7142856325746016,
+            "mrr": 1.0,
+            "ndcg@k": 1.0,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              1.0,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "numeric": {
+            "p@k": 0.10357142857142858,
+            "r_precision": 0.10357142857142858,
+            "recall@k": 0.0035651232850848927,
+            "mrr": 0.11204648526077098,
+            "ndcg@k": 0.08108234604725706,
+            "hit@k": 0.5714285714285714,
+            "ndcg@k_ci95": [
+              0.047,
+              0.1197
+            ],
+            "n_queries": 28
+          },
+          "partial": {
+            "p@k": 0.9675,
+            "r_precision": 1.0,
+            "recall@k": 0.4793394173924822,
+            "mrr": 1.0,
+            "ndcg@k": 1.0,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              1.0,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "typo": {
+            "p@k": 0.3128205128205128,
+            "r_precision": 0.3467948717948718,
+            "recall@k": 0.27696421935552373,
+            "mrr": 0.4017094017094017,
+            "ndcg@k": 0.3652431391691761,
+            "hit@k": 0.46153846153846156,
+            "ndcg@k_ci95": [
+              0.2334,
+              0.506
+            ],
+            "n_queries": 39
+          },
+          "ALL": {
+            "p@k": 0.5986394557823126,
+            "r_precision": 0.6559523809523806,
+            "recall@k": 0.39895530616007585,
+            "mrr": 0.6721358384623691,
+            "ndcg@k": 0.6565631844688508,
+            "hit@k": 0.7755102040816326,
+            "ndcg@k_ci95": [
+              0.5865,
+              0.7278
+            ],
+            "n_queries": 147
+          }
+        },
+        "hybrid_rrf+entity_boost": {
+          "full_constraint": {
+            "p@k": 0.8550000000000001,
+            "r_precision": 1.0,
+            "recall@k": 0.7142856325746016,
+            "mrr": 1.0,
+            "ndcg@k": 1.0,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              1.0,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "numeric": {
+            "p@k": 0.08571428571428573,
+            "r_precision": 0.08571428571428573,
+            "recall@k": 0.002858451043862128,
+            "mrr": 0.08621031746031746,
+            "ndcg@k": 0.0666871456782371,
+            "hit@k": 0.42857142857142855,
+            "ndcg@k_ci95": [
+              0.0313,
+              0.1096
+            ],
+            "n_queries": 28
+          },
+          "partial": {
+            "p@k": 0.9675,
+            "r_precision": 1.0,
+            "recall@k": 0.4793394173924822,
+            "mrr": 1.0,
+            "ndcg@k": 1.0,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              1.0,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "typo": {
+            "p@k": 0.7999999999999999,
+            "r_precision": 0.9230769230769231,
+            "recall@k": 0.6814397993366589,
+            "mrr": 0.9230769230769231,
+            "ndcg@k": 0.9230769230769231,
+            "hit@k": 0.9230769230769231,
+            "ndcg@k_ci95": [
+              0.8205,
+              1.0
+            ],
+            "n_queries": 39
+          },
+          "ALL": {
+            "p@k": 0.7244897959183673,
+            "r_precision": 0.8054421768707481,
+            "recall@k": 0.5061305496737495,
+            "mrr": 0.8055366591080877,
+            "ndcg@k": 0.8018179597210248,
+            "hit@k": 0.8707482993197279,
+            "ndcg@k_ci95": [
+              0.7384,
+              0.8606
+            ],
+            "n_queries": 147
+          }
+        }
+      }
+    },
+    "full": {
+      "n_documents": 55000,
+      "n_queries": 147,
+      "query_types": {
+        "full_constraint": 40,
+        "numeric": 28,
+        "partial": 40,
+        "typo": 39
+      },
+      "results": {
+        "keyword_only": {
+          "full_constraint": {
+            "p@k": 0.9199999999999999,
+            "r_precision": 1.0,
+            "recall@k": 0.4884005971853524,
+            "mrr": 1.0,
+            "ndcg@k": 1.0,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              1.0,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "numeric": {
+            "p@k": 0.017857142857142856,
+            "r_precision": 0.017857142857142856,
+            "recall@k": 9.352741235309032e-06,
+            "mrr": 0.02003968253968254,
+            "ndcg@k": 0.013336688637980865,
+            "hit@k": 0.10714285714285714,
+            "ndcg@k_ci95": [
+              0.0,
+              0.0292
+            ],
+            "n_queries": 28
+          },
+          "partial": {
+            "p@k": 0.9524999999999999,
+            "r_precision": 1.0,
+            "recall@k": 0.30940969405861396,
+            "mrr": 1.0,
+            "ndcg@k": 1.0,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              1.0,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "typo": {
+            "p@k": 0.12564102564102564,
+            "r_precision": 0.12179487179487179,
+            "recall@k": 0.08528850067311605,
+            "mrr": 0.12008547008547009,
+            "ndcg@k": 0.13283436976295532,
+            "hit@k": 0.1794871794871795,
+            "ndcg@k_ci95": [
+              0.0424,
+              0.2445
+            ],
+            "n_queries": 39
+          },
+          "ALL": {
+            "p@k": 0.5462585034013606,
+            "r_precision": 0.5799319727891157,
+            "recall@k": 0.23972057859023654,
+            "mrr": 0.5798941798941799,
+            "ndcg@k": 0.5819997802899232,
+            "hit@k": 0.6122448979591837,
+            "ndcg@k_ci95": [
+              0.5031,
+              0.6597
+            ],
+            "n_queries": 147
+          }
+        },
+        "semantic_only": {
+          "full_constraint": {
+            "p@k": 0.9075,
+            "r_precision": 0.9875,
+            "recall@k": 0.4824482162329714,
+            "mrr": 1.0,
+            "ndcg@k": 0.9875432242257365,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              0.9626,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "numeric": {
+            "p@k": 0.23214285714285715,
+            "r_precision": 0.23214285714285715,
+            "recall@k": 0.004464947580358325,
+            "mrr": 0.37589285714285714,
+            "ndcg@k": 0.2427957967882024,
+            "hit@k": 0.6428571428571429,
+            "ndcg@k_ci95": [
+              0.1491,
+              0.3467
+            ],
+            "n_queries": 28
+          },
+          "partial": {
+            "p@k": 0.9524999999999999,
+            "r_precision": 1.0,
+            "recall@k": 0.30940969405861396,
+            "mrr": 1.0,
+            "ndcg@k": 1.0,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              1.0,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "typo": {
+            "p@k": 0.37435897435897436,
+            "r_precision": 0.37435897435897436,
+            "recall@k": 0.14975990419394722,
+            "mrr": 0.3946886446886447,
+            "ndcg@k": 0.37799927276641465,
+            "hit@k": 0.4358974358974359,
+            "ndcg@k_ci95": [
+              0.2322,
+              0.5183
+            ],
+            "n_queries": 39
+          },
+          "ALL": {
+            "p@k": 0.6496598639455784,
+            "r_precision": 0.6843537414965988,
+            "recall@k": 0.25605422590120674,
+            "mrr": 0.7205296404275996,
+            "ndcg@k": 0.6873604280067299,
+            "hit@k": 0.782312925170068,
+            "ndcg@k_ci95": [
+              0.6149,
+              0.7543
+            ],
+            "n_queries": 147
+          }
+        },
+        "hybrid_rrf": {
+          "full_constraint": {
+            "p@k": 0.9199999999999999,
+            "r_precision": 1.0,
+            "recall@k": 0.4884005971853524,
+            "mrr": 1.0,
+            "ndcg@k": 1.0,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              1.0,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "numeric": {
+            "p@k": 0.08571428571428573,
+            "r_precision": 0.08571428571428573,
+            "recall@k": 0.0010764569342744108,
+            "mrr": 0.11393140589569162,
+            "ndcg@k": 0.07516425852817381,
+            "hit@k": 0.39285714285714285,
+            "ndcg@k_ci95": [
+              0.0315,
+              0.1228
+            ],
+            "n_queries": 28
+          },
+          "partial": {
+            "p@k": 0.9524999999999999,
+            "r_precision": 1.0,
+            "recall@k": 0.30940969405861396,
+            "mrr": 1.0,
+            "ndcg@k": 1.0,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              1.0,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "typo": {
+            "p@k": 0.3076923076923077,
+            "r_precision": 0.32264957264957267,
+            "recall@k": 0.181654296780869,
+            "mrr": 0.35555555555555557,
+            "ndcg@k": 0.33411126371510125,
+            "hit@k": 0.46153846153846156,
+            "ndcg@k_ci95": [
+              0.2112,
+              0.4665
+            ],
+            "n_queries": 39
+          },
+          "ALL": {
+            "p@k": 0.6074829931972788,
+            "r_precision": 0.646145124716553,
+            "recall@k": 0.2654902722338247,
+            "mrr": 0.660249973005075,
+            "ndcg@k": 0.6471764525420263,
+            "hit@k": 0.7414965986394558,
+            "ndcg@k_ci95": [
+              0.5767,
+              0.7182
+            ],
+            "n_queries": 147
+          }
+        },
+        "hybrid_rrf+entity_boost": {
+          "full_constraint": {
+            "p@k": 0.9199999999999999,
+            "r_precision": 1.0,
+            "recall@k": 0.4884005971853524,
+            "mrr": 1.0,
+            "ndcg@k": 1.0,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              1.0,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "numeric": {
+            "p@k": 0.06785714285714287,
+            "r_precision": 0.06785714285714287,
+            "recall@k": 0.0007418433766721854,
+            "mrr": 0.0901218820861678,
+            "ndcg@k": 0.058221725315571474,
+            "hit@k": 0.32142857142857145,
+            "ndcg@k_ci95": [
+              0.0211,
+              0.1027
+            ],
+            "n_queries": 28
+          },
+          "partial": {
+            "p@k": 0.9524999999999999,
+            "r_precision": 1.0,
+            "recall@k": 0.30940969405861396,
+            "mrr": 1.0,
+            "ndcg@k": 1.0,
+            "hit@k": 1.0,
+            "ndcg@k_ci95": [
+              1.0,
+              1.0
+            ],
+            "n_queries": 40
+          },
+          "typo": {
+            "p@k": 0.8615384615384616,
+            "r_precision": 0.9487179487179487,
+            "recall@k": 0.48205950123882,
+            "mrr": 0.9487179487179487,
+            "ndcg@k": 0.9487179487179487,
+            "hit@k": 0.9487179487179487,
+            "ndcg@k_ci95": [
+              0.8718,
+              1.0
+            ],
+            "n_queries": 39
+          },
+          "ALL": {
+            "p@k": 0.7510204081632652,
+            "r_precision": 0.8088435374149658,
+            "recall@k": 0.3451258762763228,
+            "mrr": 0.8130844401252565,
+            "ndcg@k": 0.8070082197880002,
+            "hit@k": 0.8571428571428571,
+            "ndcg@k_ci95": [
+              0.7421,
+              0.8667
+            ],
+            "n_queries": 147
+          }
+        }
+      }
+    }
+  },
+  "failures": {
+    "kaggle": [
+      {
+        "query": "Hores-gram cultivation in Andhra Pradesh during the Kharif season",
+        "type": "typo",
+        "n_relevant": 23,
+        "ndcg@k": 0.0,
+        "top3_retrieved": [
+          {
+            "crop": "Gram",
+            "state": "Andhra Pradesh",
+            "season": "Kharif",
+            "year": 2000,
+            "rainfall": 1070.25,
+            "ph": 6.8
+          },
+          {
+            "crop": "Gram",
+            "state": "Andhra Pradesh",
+            "season": "Kharif",
+            "year": 1998,
+            "rainfall": 1100.41,
+            "ph": 6.8
+          },
+          {
+            "crop": "Gram",
+            "state": "Andhra Pradesh",
+            "season": "Kharif",
+            "year": 2003,
+            "rainfall": 857.23,
+            "ph": 6.8
+          }
+        ]
+      },
+      {
+        "query": "Otehr cultivation in Gujarat during the Rabi season",
+        "type": "typo",
+        "n_relevant": 23,
+        "ndcg@k": 0.0,
+        "top3_retrieved": [
+          {
+            "crop": "Gram",
+            "state": "Gujarat",
+            "season": "Rabi",
+            "year": 1998,
+            "rainfall": 758.93,
+            "ph": 7.8
+          },
+          {
+            "crop": "Gram",
+            "state": "Gujarat",
+            "season": "Rabi",
+            "year": 2000,
+            "rainfall": 549.8,
+            "ph": 7.8
+          },
+          {
+            "crop": "Gram",
+            "state": "Gujarat",
+            "season": "Rabi",
+            "year": 1999,
+            "rainfall": 440.13,
+            "ph": 7.8
+          }
+        ]
+      },
+      {
+        "query": "othre cultivation in Nagaland during the Kharif season",
+        "type": "typo",
+        "n_relevant": 5,
+        "ndcg@k": 0.0,
+        "top3_retrieved": [
+          {
+            "crop": "Other Kharif pulses",
+            "state": "Nagaland",
+            "season": "Kharif",
+            "year": 2000,
+            "rainfall": 688.55,
+            "ph": 5.8
+          },
+          {
+            "crop": "Other Kharif pulses",
+            "state": "Nagaland",
+            "season": "Kharif",
+            "year": 2002,
+            "rainfall": 838.03,
+            "ph": 5.8
+          },
+          {
+            "crop": "Other Kharif pulses",
+            "state": "Nagaland",
+            "season": "Kharif",
+            "year": 2003,
+            "rainfall": 780.96,
+            "ph": 5.8
+          }
+        ]
+      },
+      {
+        "query": "Uttarakhand records with annual rainfall above 1419 mm",
+        "type": "numeric",
+        "n_relevant": 178,
+        "ndcg@k": 0.0,
+        "top3_retrieved": [
+          {
+            "crop": "Maize",
+            "state": "Uttarakhand",
+            "season": "Summer",
+            "year": 2008,
+            "rainfall": 1418.98,
+            "ph": 6.4
+          },
+          {
+            "crop": "Tobacco",
+            "state": "Uttarakhand",
+            "season": "Whole Year",
+            "year": 2008,
+            "rainfall": 1418.98,
+            "ph": 6.4
+          },
+          {
+            "crop": "Rice",
+            "state": "Uttarakhand",
+            "season": "Summer",
+            "year": 2008,
+            "rainfall": 1418.98,
+            "ph": 6.4
+          }
+        ]
+      },
+      {
+        "query": "Uttar Pradesh records with annual rainfall above 1129 mm",
+        "type": "numeric",
+        "n_relevant": 200,
+        "ndcg@k": 0.0,
+        "top3_retrieved": [
+          {
+            "crop": "Maize",
+            "state": "Uttar Pradesh",
+            "season": "Summer",
+            "year": 2017,
+            "rainfall": 1128.51,
+            "ph": 7.6
+          },
+          {
+            "crop": "Rice",
+            "state": "Uttar Pradesh",
+            "season": "Summer",
+            "year": 2017,
+            "rainfall": 1128.51,
+            "ph": 7.6
+          },
+          {
+            "crop": "Maize",
+            "state": "Uttar Pradesh",
+            "season": "Summer",
+            "year": 2010,
+            "rainfall": 930.36,
+            "ph": 7.6
+          }
+        ]
+      }
+    ],
+    "full": [
+      {
+        "query": "othre cultivation in Andhra Pradesh during the Rabi season",
+        "type": "typo",
+        "n_relevant": 13,
+        "ndcg@k": 0.0,
+        "top3_retrieved": [
+          {
+            "crop": "Gram",
+            "state": "Andhra Pradesh",
+            "season": "Rabi",
+            "year": 1998,
+            "rainfall": 1100.41,
+            "ph": 6.8
+          },
+          {
+            "crop": "Gram",
+            "state": "Andhra Pradesh",
+            "season": "Rabi",
+            "year": 2007,
+            "rainfall": 1067.72,
+            "ph": 6.8
+          },
+          {
+            "crop": "Gram",
+            "state": "Andhra Pradesh",
+            "season": "Rabi",
+            "year": 2000,
+            "rainfall": 1070.25,
+            "ph": 6.8
+          }
+        ]
+      },
+      {
+        "query": "otehr cultivation in Jammu and Kashmir during the Whole Year season",
+        "type": "typo",
+        "n_relevant": 3,
+        "ndcg@k": 0.0,
+        "top3_retrieved": [
+          {
+            "crop": "Garlic",
+            "state": "Jammu and Kashmir",
+            "season": "Whole Year",
+            "year": 2000,
+            "rainfall": 303.74,
+            "ph": 6.7
+          },
+          {
+            "crop": "Garlic",
+            "state": "Jammu and Kashmir",
+            "season": "Whole Year",
+            "year": 2000,
+            "rainfall": 303.74,
+            "ph": 6.7
+          },
+          {
+            "crop": "Garlic",
+            "state": "Jammu and Kashmir",
+            "season": "Whole Year",
+            "year": 2000,
+            "rainfall": 303.74,
+            "ph": 6.7
+          }
+        ]
+      },
+      {
+        "query": "Uttarakhand records with annual rainfall above 1419 mm",
+        "type": "numeric",
+        "n_relevant": 506,
+        "ndcg@k": 0.0,
+        "top3_retrieved": [
+          {
+            "crop": "Maize",
+            "state": "Uttarakhand",
+            "season": "Summer",
+            "year": 2008,
+            "rainfall": 1418.98,
+            "ph": 6.4
+          },
+          {
+            "crop": "Maize",
+            "state": "Uttarakhand",
+            "season": "Summer",
+            "year": 2008,
+            "rainfall": 1418.98,
+            "ph": 6.4
+          },
+          {
+            "crop": "Maize",
+            "state": "Uttarakhand",
+            "season": "Summer",
+            "year": 2008,
+            "rainfall": 1418.98,
+            "ph": 6.4
+          }
+        ]
+      },
+      {
+        "query": "Uttar Pradesh records with annual rainfall above 1129 mm",
+        "type": "numeric",
+        "n_relevant": 555,
+        "ndcg@k": 0.0,
+        "top3_retrieved": [
+          {
+            "crop": "Maize",
+            "state": "Uttar Pradesh",
+            "season": "Summer",
+            "year": 2017,
+            "rainfall": 1128.51,
+            "ph": 7.6
+          },
+          {
+            "crop": "Rice",
+            "state": "Uttar Pradesh",
+            "season": "Summer",
+            "year": 1999,
+            "rainfall": 649.86,
+            "ph": 7.6
+          },
+          {
+            "crop": "Rice",
+            "state": "Uttar Pradesh",
+            "season": "Summer",
+            "year": 1999,
+            "rainfall": 649.86,
+            "ph": 7.6
+          }
+        ]
+      },
+      {
+        "query": "Karnataka records with annual rainfall above 1001 mm",
+        "type": "numeric",
+        "n_relevant": 866,
+        "ndcg@k": 0.0,
+        "top3_retrieved": [
+          {
+            "crop": "Tobacco",
+            "state": "Karnataka",
+            "season": "Whole Year",
+            "year": 2000,
+            "rainfall": 1000.55,
+            "ph": 6.9
+          },
+          {
+            "crop": "Bajra",
+            "state": "Karnataka",
+            "season": "Kharif",
+            "year": 2000,
+            "rainfall": 1000.55,
+            "ph": 6.9
+          },
+          {
+            "crop": "Bajra",
+            "state": "Karnataka",
+            "season": "Kharif",
+            "year": 2000,
+            "rainfall": 1000.55,
+            "ph": 6.9
+          }
+        ]
+      }
+    ]
+  }
+}
